@@ -7,13 +7,13 @@ using UnityEngine;
 
 namespace Assets.Scripts.Utility
 {
-    class DrawingService
+    public static class Drawer
     {
         /*GameObject wich draws Circle needs two components:
             - LineRenderer
             - Maretial with type of Particles / Standard Surface
          */
-        public void DrawCircleOnSurface(LineRenderer line, float radius, float width, Color color)
+        public static void DrawCircleOnSurface(LineRenderer line, float radius, float width, Color color)
         {
             int segments = 50;
             line.material = new Material(Shader.Find("Particles/Standard Surface"));
@@ -41,7 +41,7 @@ namespace Assets.Scripts.Utility
             }
         }
 
-        public void DrawEmpty(LineRenderer line)
+        public static void DrawEmpty(LineRenderer line)
         {
             line.positionCount = 0;
         }
