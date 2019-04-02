@@ -7184,6 +7184,9 @@ MonoBehaviour:
   scrollSpeed: 4
   yMin: 10
   yMax: 100
+  mDelta: 10
+  mSpeed: 3
+  rSpeed: 10
 --- !u!1001 &577901623
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16087,7 +16090,7 @@ PrefabInstance:
     - target: {fileID: 7066207865984392758, guid: 98e9ade6abe09cb47a674bd943e5deb6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32
+      value: 31.8
       objectReference: {fileID: 0}
     - target: {fileID: 7066207865984392758, guid: 98e9ade6abe09cb47a674bd943e5deb6,
         type: 3}
