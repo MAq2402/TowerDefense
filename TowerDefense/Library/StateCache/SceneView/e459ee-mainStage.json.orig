@@ -1,0 +1,5 @@
+<<<<<<< .merge_file_a09956
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":41.5234375,"y":-2.36328125,"z":19.26171875},"rotation":{"x":-0.07033868879079819,"y":0.9289693236351013,"z":-0.23769976198673249,"w":-0.2748951315879822},"size":40.440731048583987,"orthographic":true}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":48.40999984741211,"y":0.9500000476837158,"z":7.569999694824219},"rotation":{"x":0.7071068286895752,"y":0.0,"z":0.0,"w":0.7071068286895752},"size":32.984886169433597,"orthographic":true}
+>>>>>>> .merge_file_a09288

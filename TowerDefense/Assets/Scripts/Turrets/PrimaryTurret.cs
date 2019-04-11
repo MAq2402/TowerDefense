@@ -20,9 +20,6 @@ public class PrimaryTurret : MonoBehaviour
     public Transform partToRotate;
     public float rotateSpeed = 10f;
 
-    DrawingService drawingService = new DrawingService();
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +30,7 @@ public class PrimaryTurret : MonoBehaviour
 
     void ShowRange()
     {
-        this.drawingService.DrawCircleOnSurface(
+        Drawer.DrawCircleOnSurface(
             this.gameObject.GetComponent<LineRenderer>(),
             this.range,
             0.25f,
@@ -42,7 +39,7 @@ public class PrimaryTurret : MonoBehaviour
 
     void HideRange()
     {
-        this.drawingService.DrawEmpty(
+        Drawer.DrawEmpty(
             this.gameObject.GetComponent<LineRenderer>());
     }
 
