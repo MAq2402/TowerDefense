@@ -5,13 +5,13 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
 
-    public float enemySpeed = 3f;
+    public float enemySpeed = 5f;
     private Transform target;
     private int wayPointIndex = 0; 
 
     void Start()
     {
-        target = Way.wayPoints[wayPointIndex];
+        target = Way.wayPoints[0];
     }
 
     
