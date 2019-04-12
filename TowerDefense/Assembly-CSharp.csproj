@@ -60,10 +60,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Prefabs\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\EnemyMovement.cs" />
+    <Compile Include="Assets\Scripts\ObjectPooler.cs" />
     <Compile Include="Assets\Scripts\Turrets\DefensiveTurret.cs" />
     <Compile Include="Assets\Scripts\Turrets\PrimaryTurret.cs" />
     <Compile Include="Assets\Scripts\Utility\Drawer.cs" />
+    <Compile Include="Assets\Scripts\Way.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Martyna/Documents/gk/TowerDefense/TowerDefense/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
