@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Utility;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,8 @@ public class PrimaryTurret : MonoBehaviour
     [Header("Properties")]
     public int level = 1;
     public float range = 10f;
-    public float attackSpeed = 10f;
+    public float attackSpeed = 20f;
+    private float attackCountdown = 0f;
     public float attackStrength = 2f;
     
     public GameObject target;
@@ -20,12 +22,13 @@ public class PrimaryTurret : MonoBehaviour
     public Transform partToRotate;
     public float rotateSpeed = 10f;
 
+    public GameObject bulletPrefab;
+    public Transform attackPoint;
+
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("UpdateTargets", 0f, 0.5f);
-
-
     }
 
     void ShowRange()
@@ -47,7 +50,25 @@ public class PrimaryTurret : MonoBehaviour
     void Update()
     {
         UpdateView();
-        
+
+        if(attackCountdown <= 0f && target !=null)
+        {
+            Shoot();
+            attackCountdown = 1f / attackSpeed;
+        }
+
+        attackCountdown -= Time.deltaTime;
+    }
+
+    private void Shoot()
+    {
+        var bulletGO = Instantiate(bulletPrefab, attackPoint.position, attackPoint.rotation);
+        Bullet bullet = bulletGO.GetComponent<Bullet>();
+
+        if(bullet != null)
+        {
+            bullet.SetTarget(target?.transform);
+        }
     }
 
     void UpdateTargets()
