@@ -30,7 +30,7 @@ public class DefensiveTurret : MonoBehaviour
         }
         else
         {
-            Drawer.DrawEmpty(gameObject.GetComponent<LineRenderer>());
+            Drawer.EraseCircleOnSurface(gameObject.GetComponent<LineRenderer>());
         }
     }
     private void OnMouseUp()

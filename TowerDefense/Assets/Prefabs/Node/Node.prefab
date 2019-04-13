@@ -101,6 +101,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 5761814621074449134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed4fa77ad5a52334fb14df5138baf176, type: 3}
+  m_Script: {fileID: 11500000, guid: 49f60fb020dcd9a458b1199b57612976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  placementOffset: {x: 0, y: 0.5, z: 0}
+  turret: {fileID: 0}

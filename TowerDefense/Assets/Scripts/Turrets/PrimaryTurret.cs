@@ -13,7 +13,8 @@ public class PrimaryTurret : MonoBehaviour
     public float range = 10f;
     public float attackSpeed = 10f;
     public float attackStrength = 2f;
-    
+
+    [Header("Optional")]
     public GameObject target;
     public string targetTag = "enemy";
 
@@ -39,7 +40,7 @@ public class PrimaryTurret : MonoBehaviour
 
     void HideRange()
     {
-        Drawer.DrawEmpty(
+        Drawer.EraseCircleOnSurface(
             this.gameObject.GetComponent<LineRenderer>());
     }
 

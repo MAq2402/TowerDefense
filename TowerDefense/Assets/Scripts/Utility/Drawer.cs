@@ -41,7 +41,7 @@ namespace Assets.Scripts.Utility
             }
         }
 
-        public static void DrawEmpty(LineRenderer line)
+        public static void EraseCircleOnSurface(LineRenderer line)
         {
             line.positionCount = 0;
         }
