@@ -25,7 +25,7 @@ namespace Assets.Scripts.Utility
             line.endColor = color;
 
             float x;
-            float y;
+            float y = 0.075f;
             float z;
 
             float angle = 20f;
@@ -35,7 +35,7 @@ namespace Assets.Scripts.Utility
                 x = Mathf.Sin(Mathf.Deg2Rad * angle) * radius;
                 z = Mathf.Cos(Mathf.Deg2Rad * angle) * radius;
 
-                line.SetPosition(i, new Vector3(x, 0.075f, z));
+                line.SetPosition(i, new Vector3(x, y, z));
 
                 angle += (360f / segments);
             }
