@@ -18,11 +18,6 @@ public class Builder : MonoBehaviour
         singleIstance = this;
     }
 
-    public TurretPrototype GetTurretToBuild()
-    {
-        return this.turretToBuild;
-    }
-
     public void SetTurretToBuild(TurretPrototype turret)
     {
         this.turretToBuild = turret;

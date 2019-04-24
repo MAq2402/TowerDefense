@@ -1604,7 +1604,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &123481352
 MonoBehaviour:
@@ -1619,10 +1619,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretToBuild:
-    turretPrefab: {fileID: 9145893509158699360, guid: 5dadf0d2b0fbec24bbc556fbb1af07e9,
+    turretPrefab: {fileID: 100016, guid: 79674fc0fc4c389418ecf408df2f4fe3, type: 3}
+    turretPrototypePrefab: {fileID: 100016, guid: fc7b24c971693ec40b547c0a943a30ed,
       type: 3}
-    turretPrototypePrefab: {fileID: 9145893509158699360, guid: 9f063b4c27628e045b94adc7d4aa5a97,
-      type: 3}
+    range: 12
     cost: 0
 --- !u!1 &134527040
 GameObject:
@@ -2850,7 +2850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: e203cd8a12af0b1458fe017e022113d9, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: e203cd8a12af0b1458fe017e022113d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

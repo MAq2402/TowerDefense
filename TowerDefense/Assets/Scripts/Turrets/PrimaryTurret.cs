@@ -23,31 +23,23 @@ public class PrimaryTurret : MonoBehaviour
     [Header("Prfabs")]
     public GameObject bulletPrefab;
 
-    private GameObject target;
-    private string targetTag = "enemy";
-    private float attackCountdown = 0f;
-    private float rotateSpeed = 10f;
+    protected GameObject target;
+    protected string targetTag = "enemy";
+    protected float attackCountdown = 0f;
+    protected float rotateSpeed = 10f;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("UpdateTargets", 0f, 0.5f);
+        this.OnStart();
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateView();
-
-        if(attackCountdown <= 0f && target !=null)
-        {
-            Shoot();
-            attackCountdown = 1f / attackSpeed;
-        }
-
-        attackCountdown -= Time.deltaTime;
+        this.OnUpdate();
     }
 
     void OnMouseEnter()
@@ -60,7 +52,25 @@ public class PrimaryTurret : MonoBehaviour
         this.HideRange();
     }
 
-    void UpdateTargets()
+    protected void OnStart()
+    {
+        InvokeRepeating("UpdateTargets", 0f, 0.5f);
+    }
+
+    protected void OnUpdate()
+    {
+        UpdateView();
+
+        if (attackCountdown <= 0f && target != null)
+        {
+            Shoot();
+            attackCountdown = 1f / attackSpeed;
+        }
+
+        attackCountdown -= Time.deltaTime;
+    }
+
+    protected void UpdateTargets()
     {
         Vector3 towerPosition = this.transform.position;
         var enemiesInRange = this.GetEnemiesInRange(towerPosition, this.range);
@@ -74,7 +84,7 @@ public class PrimaryTurret : MonoBehaviour
         }
     }
 
-    private IEnumerable<GameObject> GetEnemiesInRange(Vector3 towerPosition, float range)
+    protected IEnumerable<GameObject> GetEnemiesInRange(Vector3 towerPosition, float range)
     {
         List<GameObject> allEnemies = GameObject.FindGameObjectsWithTag(this.targetTag).ToList<GameObject>();
         return allEnemies.Where(e => Vector3.Distance(towerPosition, e.transform.position) < range);
@@ -91,7 +101,7 @@ public class PrimaryTurret : MonoBehaviour
         }
     }
 
-    private void UpdateView()
+    protected virtual void UpdateView()
     {
         if(this.target)
         {

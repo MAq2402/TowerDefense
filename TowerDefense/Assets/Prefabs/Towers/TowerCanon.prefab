@@ -157,16 +157,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  range: 10
+  range: 5
   attackSpeed: 20
   attackStrength: 2
-  target: {fileID: 0}
-  targetTag: enemy
   rotatingPart: {fileID: 9145893509158608194}
-  rotateSpeed: 10
+  attackPoint: {fileID: 9145893510599837157}
   bulletPrefab: {fileID: 7254719301701317269, guid: 216237590ea799c4c95f820efd8d7bbd,
     type: 3}
-  attackPoint: {fileID: 9145893510599837157}
 --- !u!1 &9145893509158699362
 GameObject:
   m_ObjectHideFlags: 0

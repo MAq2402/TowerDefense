@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9145893509158608204}
   - component: {fileID: 9145893509158699166}
-  - component: {fileID: 9145893509158699165}
-  - component: {fileID: 9145893509158699167}
+  - component: {fileID: 314580641996703176}
   m_Layer: 29
   m_Name: TowerCanonPrototype
   m_TagString: Untagged
@@ -43,7 +42,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9145893509158699360}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -131,42 +130,18 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
---- !u!65 &9145893509158699165
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9145893509158699360}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.1, z: 1}
-  m_Center: {x: 0, y: 0.55, z: 0}
---- !u!114 &9145893509158699167
+--- !u!114 &314580641996703176
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9145893509158699360}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2ce5e783fb16f44e867e0bd0d835194, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b950e5b9b4294740b8a8fa2d5d69199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
-  range: 10
-  attackSpeed: 20
-  attackStrength: 2
-  target: {fileID: 0}
-  targetTag: enemy
-  partToRotate: {fileID: 9145893509158608194}
-  rotateSpeed: 10
-  bulletPrefab: {fileID: 7254719301701317269, guid: 216237590ea799c4c95f820efd8d7bbd,
-    type: 3}
-  attackPoint: {fileID: 9145893510599837157}
 --- !u!1 &9145893509158699362
 GameObject:
   m_ObjectHideFlags: 0
