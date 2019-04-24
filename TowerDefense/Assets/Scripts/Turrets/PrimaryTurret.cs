@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -13,37 +14,26 @@ public class PrimaryTurret : MonoBehaviour
     public int level = 1;
     public float range = 10f;
     public float attackSpeed = 20f;
-    private float attackCountdown = 0f;
     public float attackStrength = 2f;
-    
-    public GameObject target;
-    public string targetTag = "enemy";
 
-    public Transform partToRotate;
-    public float rotateSpeed = 10f;
-
-    public GameObject bulletPrefab;
+    [Header("Transforms")]
+    public Transform rotatingPart;
     public Transform attackPoint;
+
+    [Header("Prfabs")]
+    public GameObject bulletPrefab;
+
+    private GameObject target;
+    private string targetTag = "enemy";
+    private float attackCountdown = 0f;
+    private float rotateSpeed = 10f;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("UpdateTargets", 0f, 0.5f);
-    }
-
-    void ShowRange()
-    {
-        Drawer.DrawCircleOnSurface(
-            this.gameObject.GetComponent<LineRenderer>(),
-            this.range,
-            0.25f,
-            Color.green);
-    }
-
-    void HideRange()
-    {
-        Drawer.DrawEmpty(
-            this.gameObject.GetComponent<LineRenderer>());
     }
 
     // Update is called once per frame
@@ -60,6 +50,36 @@ public class PrimaryTurret : MonoBehaviour
         attackCountdown -= Time.deltaTime;
     }
 
+    void OnMouseEnter()
+    {
+        this.ShowRange();
+    }
+
+    void OnMouseExit()
+    {
+        this.HideRange();
+    }
+
+    void UpdateTargets()
+    {
+        Vector3 towerPosition = this.transform.position;
+        var enemiesInRange = this.GetEnemiesInRange(towerPosition, this.range);
+        if(enemiesInRange.Any())
+        {
+            this.target = enemiesInRange.OrderBy(e => Vector3.Distance(towerPosition, e.transform.position)).First();
+        }
+        else
+        {
+            this.target = null;
+        }
+    }
+
+    private IEnumerable<GameObject> GetEnemiesInRange(Vector3 towerPosition, float range)
+    {
+        List<GameObject> allEnemies = GameObject.FindGameObjectsWithTag(this.targetTag).ToList<GameObject>();
+        return allEnemies.Where(e => Vector3.Distance(towerPosition, e.transform.position) < range);
+    }
+
     private void Shoot()
     {
         var bulletGO = Instantiate(bulletPrefab, attackPoint.position, attackPoint.rotation);
@@ -71,62 +91,29 @@ public class PrimaryTurret : MonoBehaviour
         }
     }
 
-    void UpdateTargets()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(this.targetTag);
-        Vector3 myPosition = this.transform.position;
-        float shortestDistance = Mathf.Infinity;
-        GameObject nearestEnemy = null;
-
-        foreach(GameObject enemy in enemies)
-        {
-            float distanceToEnemy = Vector3.Distance(myPosition, enemy.transform.position);
-            if(distanceToEnemy <= shortestDistance)
-            {
-                nearestEnemy = enemy;
-                shortestDistance = distanceToEnemy;
-            }
-        }
-
-        if(nearestEnemy && shortestDistance <= this.range)
-        {
-            this.target = nearestEnemy;
-        }
-        else
-        {
-            this.target = null;
-        }
-    }
-
-    void UpdateView()
+    private void UpdateView()
     {
         if(this.target)
         {
-            Vector3 direction = this.target.transform.position - this.transform.position;
-            Quaternion lookRotation = Quaternion.LookRotation(direction);
-            Vector3 rotation = Quaternion.Lerp(
-                this.partToRotate.rotation,
-                lookRotation,
-                Time.deltaTime * this.rotateSpeed
-                ).eulerAngles;
-
-            this.partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+            Vector3 directionVector = this.target.transform.position - this.transform.position;
+            Quaternion fromQuaterion = this.rotatingPart.rotation;
+            Quaternion toQuaternion = Quaternion.LookRotation(directionVector);
+            this.rotatingPart.rotation = Quaternion.RotateTowards(fromQuaterion, toQuaternion, this.rotateSpeed);
         }
-
     }
 
-    void Attack()
+    private void ShowRange()
     {
-
+        Drawer.DrawCircleOnSurface(
+            this.gameObject.GetComponent<LineRenderer>(),
+            this.range,
+            0.25f,
+            Color.green);
     }
 
-    void OnMouseEnter()
+    private void HideRange()
     {
-        this.ShowRange();
-    }
-
-    void OnMouseExit()
-    {
-        this.HideRange();
+        Drawer.DrawEmpty(
+            this.gameObject.GetComponent<LineRenderer>());
     }
 }

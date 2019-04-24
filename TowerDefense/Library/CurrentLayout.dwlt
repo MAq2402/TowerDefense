@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 7}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 398}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_MinSize: {x: 887, y: 348}
   m_MaxSize: {x: 16012, y: 8048}
   vertical: 0
-  controlID: 107
+  controlID: 105
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_MinSize: {x: 610, y: 348}
   m_MaxSize: {x: 12010, y: 8048}
   vertical: 1
-  controlID: 70
+  controlID: 106
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_MinSize: {x: 610, y: 224}
   m_MaxSize: {x: 12010, y: 4024}
   vertical: 0
-  controlID: 71
+  controlID: 107
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -336,20 +336,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Node
+    - Assets/Prefabs/Towers
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Prefabs/Node
+  - Assets/Prefabs/Towers
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\rep\VI sem\GK\Projekt\Master\TowerDefense\TowerDefense
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 120}
-    m_SelectedIDs: 260c0000
-    m_LastClickedID: 3110
-    m_ExpandedIDs: 0000000094090000600a0000dc0b00001c0c00008a0c00001a0d0000660d0000d2300000d4300000
+    scrollPos: {x: 0, y: 44}
+    m_SelectedIDs: f20c0000
+    m_LastClickedID: 3314
+    m_ExpandedIDs: 0000000094090000dc0b00001c0c00008a0c00001a0d0000660d0000d2300000d4300000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -402,8 +402,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 9a910000
-    m_LastClickedInstanceID: 37274
+    m_SelectedInstanceIDs: 02fa0000
+    m_LastClickedInstanceID: 64002
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 00000000
     m_RenameOverlay:

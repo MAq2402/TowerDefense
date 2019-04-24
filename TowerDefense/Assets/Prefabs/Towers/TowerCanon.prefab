@@ -162,7 +162,7 @@ MonoBehaviour:
   attackStrength: 2
   target: {fileID: 0}
   targetTag: enemy
-  partToRotate: {fileID: 9145893509158608194}
+  rotatingPart: {fileID: 9145893509158608194}
   rotateSpeed: 10
   bulletPrefab: {fileID: 7254719301701317269, guid: 216237590ea799c4c95f820efd8d7bbd,
     type: 3}
