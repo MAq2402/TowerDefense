@@ -40,7 +40,8 @@ public class Bullet : MonoBehaviour
         var effect = Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effect, 2f);
 
-        Destroy(target.gameObject);
+        target.gameObject.GetComponent<EnemyHealth>().DecreaseHealth();
+      
         Destroy(gameObject);
     }
 }

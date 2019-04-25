@@ -8,11 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2662494563961755563}
+  - component: {fileID: 3523476167575998078}
   - component: {fileID: 1463569854416412878}
   - component: {fileID: 8793343290824408}
   - component: {fileID: 3328780958891688509}
   - component: {fileID: 7549078933169970204}
+  - component: {fileID: 5951820151500367068}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: enemy
@@ -20,7 +21,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2662494563961755563
+--- !u!4 &3523476167575998078
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6352367939156114709}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 56.39, y: 0.86, z: 7.048828}
+  m_LocalPosition: {x: 56.21, y: 1.03, z: 4.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -104,4 +105,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e5e116b7e72844eaa17c7d2f1132b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 3
+  enemySpeed: 20
+--- !u!114 &5951820151500367068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6352367939156114709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d5300e8933d8cf4b9cbbeef8f3322e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
+  healthDecreaseSpeed: 10

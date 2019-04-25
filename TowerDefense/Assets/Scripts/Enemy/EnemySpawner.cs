@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
 
     public IEnumerator SpanWave()
     {
-        int enemyQuantity = Random.Range(1, 8);
+        int enemyQuantity = Random.Range(3, 8);
 
         for (int i = 0; i < enemyQuantity; i++)
         {
