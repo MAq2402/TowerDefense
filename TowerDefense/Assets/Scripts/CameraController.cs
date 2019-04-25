@@ -10,14 +10,7 @@ public class CameraController : MonoBehaviour
 
     public float mDelta = 10f;
     public float mSpeed = 20f;
-
-    public float rSpeed = 10f;
-
-    void Start()
-    {
-        
-    }
-   
+  
     void Update()
     {
         zoom();

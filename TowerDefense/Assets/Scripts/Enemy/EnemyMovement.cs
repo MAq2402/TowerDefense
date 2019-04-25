@@ -32,9 +32,12 @@ public class EnemyMovement : MonoBehaviour
         if (wayPointIndex >= Way.wayPoints.Length - 1)
         {
             Destroy(gameObject);
-            return;
+            GameObject.Find("GameMaster").GetComponent<PlayerStatitstics>().TakeOneLive();
         }
-        wayPointIndex++;
-        target = Way.wayPoints[wayPointIndex];
+        else {
+            wayPointIndex++;
+            target = Way.wayPoints[wayPointIndex];
+        }
+       
     }
 }
