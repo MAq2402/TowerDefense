@@ -10,45 +10,45 @@ public class Node : MonoBehaviour
     public GameObject turret;
 
     private Builder builder;
-    private bool isShowingPrototype;
     // Start is called before the first frame update
     void Start()
     {
         turret = null;
-        builder = Builder.singleIstance;
-        isShowingPrototype = false;
+        builder = Builder.Instance;
     }
 
     void OnMouseDown()
     {
-        if (isShowingPrototype)
+        if(builder.TurretToBuildSelected)
         {
-            builder.HideTurretPrototypeOn(this);
-            this.PlaceTurret();
-            isShowingPrototype = false;
+            PlaceTurret();
         }
-        else
-        {
-            Debug.LogWarning("Turret on this node already exists.");
-            return;
-        }
+        //if (isShowingPrototype)
+        //{
+        //    builder.HideTurretPrototypeOn(this);
+        //    this.PlaceTurret();
+        //    isShowingPrototype = false;
+        //}
+        //else
+        //{
+        //    Debug.LogWarning("Turret on this node already exists.");
+        //    return;
+        //}
     }
 
     void OnMouseEnter()
     {
-        if (turret == null)
+        if (builder.TurretToBuildSelected)
         {
             builder.ShowTurretPrototypeOn(this);
-            isShowingPrototype = true;
         }
     }
 
     void OnMouseExit()
     {
-        if (isShowingPrototype)
+        if (builder.TurretToBuildSelected)
         {
             builder.HideTurretPrototypeOn(this);
-            isShowingPrototype = false;
         }
     }
 

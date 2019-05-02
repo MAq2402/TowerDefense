@@ -4,58 +4,70 @@ using UnityEngine;
 
 public class Builder : MonoBehaviour
 {
-    public static Builder singleIstance;
+    public static Builder Instance;
 
-    public TurretPrototype turretToBuild;
+    private TurretPrototype turretToBuild;
 
     void Awake()
     {
-        if (singleIstance != null)
+        if (Instance != null)
         {
             Debug.LogError("Error - More than one builder detected.");
-            return;
         }
-        singleIstance = this;
+        else
+        {
+            Instance = this;
+        }
     }
 
     public void SetTurretToBuild(TurretPrototype turret)
     {
-        this.turretToBuild = turret;
+        turretToBuild = turret;
     }
 
+    public float  GetRangeOfTurretToBuild()
+    {
+        return turretToBuild.range;
+    }
     public void ResetTurretToBuild()
     {
-        this.turretToBuild = null;
+        turretToBuild = null;
     }
 
     public bool TurretToBuildSelected { get { return this.turretToBuild != null; } }
 
     public void BuildTurretOn(Node node)
     {
-        if (this.turretToBuild == null)
+        if (TurretToBuildSelected)
+        {
+            HideTurretPrototypeOn(node);
+            node.turret = (GameObject)Instantiate(turretToBuild.turretPrefab, node.GetPlacementPosition(), Quaternion.identity);
+            ResetTurretToBuild();
+        }
+        else
         {
             Debug.LogWarning("Cannot build. None turret selected. TODO: display info for player");
-            return;
         }
-        node.turret = (GameObject)Instantiate(turretToBuild.turretPrefab, node.GetPlacementPosition(), Quaternion.identity);
+   
     }
 
     public void ShowTurretPrototypeOn(Node node)
     {
-        if (this.turretToBuild == null)
+        if (TurretToBuildSelected)
         {
-            return;
+            node.turret = (GameObject)Instantiate(turretToBuild.turretPrototypePrefab, 
+                                                  node.GetPlacementPosition(), 
+                                                  Quaternion.identity);
         }
-        node.turret = (GameObject)Instantiate(turretToBuild.turretPrototypePrefab, node.GetPlacementPosition(), Quaternion.identity);
+       
     }
 
     public void HideTurretPrototypeOn(Node node)
     {
-        if (this.turretToBuild == null)
+        if (TurretToBuildSelected)
         {
-            return;
+            Destroy(node.turret);
         }
-        Destroy(node.turret);
     }
 
 }
