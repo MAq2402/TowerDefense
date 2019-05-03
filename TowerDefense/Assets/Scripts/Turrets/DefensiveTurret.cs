@@ -9,7 +9,9 @@ public class DefensiveTurret : MonoBehaviour
     public Transform spawnPoint;
     public Transform ally;
     private bool hasBeenClicked = false;
-    private float range = 5f; 
+    private float range = 5f;
+
+    public virtual int Cost { get; set; } = 100;
     void Start()
     {
         SpawnAlly();
@@ -40,8 +42,17 @@ public class DefensiveTurret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetMouseButtonDown(1))
+        {
+            Sell();
+        }
     }
 
-    
+    private void Sell()
+    {
+        ShopMenu.AddMoney(Cost / 2);
+        Destroy(gameObject);
+    }
+
+
 }

@@ -15,6 +15,7 @@ public class PrimaryTurret : MonoBehaviour
     public float range = 10f;
     public float attackSpeed = 20f;
     public float attackStrength = 2f;
+    public virtual int Cost { get; set; } = 100;
 
     [Header("Transforms")]
     public Transform rotatingPart;
@@ -59,6 +60,10 @@ public class PrimaryTurret : MonoBehaviour
 
     protected void OnUpdate()
     {
+        if (Input.GetMouseButtonDown(1))
+        {
+            Sell();
+        }
         UpdateView();
 
         if (attackCountdown <= 0f && target != null)
@@ -68,6 +73,12 @@ public class PrimaryTurret : MonoBehaviour
         }
 
         attackCountdown -= Time.deltaTime;
+    }
+
+    private void Sell()
+    {
+        ShopMenu.AddMoney(Cost / 2);
+        Destroy(gameObject);
     }
 
     protected void UpdateTargets()
