@@ -11,7 +11,7 @@ public class PlayerStatitstics : MonoBehaviour
         if (playerLives > 0)
         {
             playerLives--;
-            GameObject.Find("Heart").GetComponentInChildren<Lives>().ChangeQuantity(playerLives);
+            // GameObject.Find("Heart").GetComponentInChildren<Lives>().ChangeQuantity(playerLives);
         }
 
     }

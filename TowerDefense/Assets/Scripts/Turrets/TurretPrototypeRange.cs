@@ -10,7 +10,7 @@ public class TurretPrototypeRange : MonoBehaviour
     {
         Drawer.DrawCircleOnSurface(
             this.gameObject.GetComponent<LineRenderer>(),
-            Builder.singleIstance.turretToBuild.range,
+            Builder.Instance.GetRangeOfTurretToBuild(),
             0.25f,
             Color.green);
     }

@@ -17,8 +17,8 @@ public class DefensiveTurret : MonoBehaviour
 
     private void SpawnAlly()
     {
-        Instantiate(ally, spawnPoint.position, spawnPoint.rotation);
-        
+        //Instantiate(ally, spawnPoint.position, spawnPoint.rotation);
+        //For now do nothing :: WILL BE DONE SOON
     }
 
     private void OnMouseDown()
