@@ -8,6 +8,8 @@ public class LongRangeTurret : PrimaryTurret
     [Header("LongRangeTurret specifications")]
     public Transform verticalRotatingPart;
 
+    public override int Cost { get; set; } = 200;
+
     void Start()
     {
         base.OnStart();
