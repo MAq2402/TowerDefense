@@ -7,6 +7,5 @@ public class TurretPrototype
 {
     public GameObject turretPrefab;
     public GameObject turretPrototypePrefab;
-    public float range;
     public int cost;
 }

@@ -25,10 +25,6 @@ public class Builder : MonoBehaviour
         turretToBuild = turret;
     }
 
-    public float  GetRangeOfTurretToBuild()
-    {
-        return turretToBuild.range;
-    }
     public void ResetTurretToBuild()
     {
         turretToBuild = null;
