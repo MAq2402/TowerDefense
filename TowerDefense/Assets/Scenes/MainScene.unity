@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1650,7 +1650,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 123481351}
-  - component: {fileID: 123481350}
   - component: {fileID: 123481352}
   - component: {fileID: 123481353}
   - component: {fileID: 123481354}
@@ -1661,18 +1660,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &123481350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123481349}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &123481351
 Transform:
   m_ObjectHideFlags: 0
@@ -7874,10 +7861,10 @@ RectTransform:
   m_Father: {fileID: 1014758571}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -277, y: 457}
-  m_SizeDelta: {x: -554, y: 30}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 110, y: -20}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &546663770
 MonoBehaviour:
@@ -7891,7 +7878,7 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: 4af14023dbafc704582cc8abf2cac4a5, type: 2}
   m_Color: {r: 0.8820755, g: 0.89275414, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -11349,19 +11336,16 @@ MonoBehaviour:
       type: 3}
     turretPrototypePrefab: {fileID: 9145893509158699360, guid: 9f063b4c27628e045b94adc7d4aa5a97,
       type: 3}
-    range: 10
     cost: 100
   longRangeTurret:
     turretPrefab: {fileID: 100016, guid: 79674fc0fc4c389418ecf408df2f4fe3, type: 3}
     turretPrototypePrefab: {fileID: 100016, guid: fc7b24c971693ec40b547c0a943a30ed,
       type: 3}
-    range: 12
     cost: 200
   basicDefensiveTurret:
     turretPrefab: {fileID: 100010, guid: e203cd8a12af0b1458fe017e022113d9, type: 3}
     turretPrototypePrefab: {fileID: 6699232595000013896, guid: 0f2cc8e73c400b04c9f96d852ded2bcf,
       type: 3}
-    range: 5
     cost: 100
   buyPrimaryTurretButton: {fileID: 2147347800}
   buyLongRangeTurretButton: {fileID: 1596558567}
@@ -13141,7 +13125,7 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}

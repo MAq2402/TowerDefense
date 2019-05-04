@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Utility;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,10 +26,6 @@ public class Builder : MonoBehaviour
         turretToBuild = turret;
     }
 
-    public float  GetRangeOfTurretToBuild()
-    {
-        return turretToBuild.range;
-    }
     public void ResetTurretToBuild()
     {
         turretToBuild = null;
