@@ -38,6 +38,7 @@ public class Builder : MonoBehaviour
         {
             HideTurretPrototypeOn(node);
             node.turret = (GameObject)Instantiate(turretToBuild.turretPrefab, node.GetPlacementPosition(), Quaternion.identity);
+            ShopMenu.TakeMoney(turretToBuild.cost);
             ResetTurretToBuild();
         }
         else

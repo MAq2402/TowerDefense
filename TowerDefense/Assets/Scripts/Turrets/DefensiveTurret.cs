@@ -42,6 +42,10 @@ public class DefensiveTurret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+    }
+    void OnMouseOver()
+    {
         if (Input.GetMouseButtonDown(1))
         {
             Sell();

@@ -23,17 +23,6 @@ public class Node : MonoBehaviour
         {
             PlaceTurret();
         }
-        //if (isShowingPrototype)
-        //{
-        //    builder.HideTurretPrototypeOn(this);
-        //    this.PlaceTurret();
-        //    isShowingPrototype = false;
-        //}
-        //else
-        //{
-        //    Debug.LogWarning("Turret on this node already exists.");
-        //    return;
-        //}
     }
 
     void OnMouseEnter()
