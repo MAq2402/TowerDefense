@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
         {
             if (enemyCounter < ObjectPooler.Instance.poolDictionary["enemy"].Count)
             {
-                ObjectPooler.Instance.SpawnFromPool("enemy", transform.position, Quaternion.identity);
+                ObjectPooler.Instance.SpawnFromPool("warrior", transform.position, Quaternion.identity);
                 enemyCounter++;
                 yield return new WaitForSeconds(0.5f);
             }  
