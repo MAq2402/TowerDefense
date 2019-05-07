@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     public float yMin = 10f;
     public float yMax = 80f;
 
-    public float mDelta = 10f;
+    public float mDelta = 1f;
     public float mSpeed = 20f;
   
     void Update()

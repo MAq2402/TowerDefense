@@ -9,6 +9,7 @@ public class Lives : MonoBehaviour
 
     public void ChangeQuantity(int quantity)
     {
+        Debug.Log(quantity);
         livesQuantity.text = quantity.ToString();
     }
 
