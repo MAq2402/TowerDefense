@@ -25,10 +25,6 @@ public class Builder : MonoBehaviour
         turretToBuild = turret;
     }
 
-    public float  GetRangeOfTurretToBuild()
-    {
-        return turretToBuild.range;
-    }
     public void ResetTurretToBuild()
     {
         turretToBuild = null;
@@ -42,6 +38,7 @@ public class Builder : MonoBehaviour
         {
             HideTurretPrototypeOn(node);
             node.turret = (GameObject)Instantiate(turretToBuild.turretPrefab, node.GetPlacementPosition(), Quaternion.identity);
+            ShopMenu.TakeMoney(turretToBuild.cost);
             ResetTurretToBuild();
         }
         else

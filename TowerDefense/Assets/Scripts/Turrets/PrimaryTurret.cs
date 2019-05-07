@@ -53,6 +53,14 @@ public class PrimaryTurret : MonoBehaviour
         this.HideRange();
     }
 
+    void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {//when right click
+            Sell();
+        }
+    }
+
     protected void OnStart()
     {
         InvokeRepeating("UpdateTargets", 0f, 0.5f);
@@ -60,10 +68,6 @@ public class PrimaryTurret : MonoBehaviour
 
     protected void OnUpdate()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            Sell();
-        }
         UpdateView();
 
         if (attackCountdown <= 0f && target != null)
