@@ -5,10 +5,10 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
 
-    public float spawnCounter = 3f;
-    public float spawnBreak = 5f;
+    public float spawnCounter = 2f;
+    public float spawnBreak = 15f;
     public int enemyCounter = 0;
-    public int wavesQuantity = 4;
+    public int wavesQuantity = 3;
     public Dictionary<string, int> waves;
 
     private void Start()

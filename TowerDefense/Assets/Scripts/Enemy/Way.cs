@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 
 public class Way : MonoBehaviour
-{
-     
+{  
     public static Transform[] wayPoints;
 
     void Awake()

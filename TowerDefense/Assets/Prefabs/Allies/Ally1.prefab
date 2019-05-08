@@ -1493,7 +1493,7 @@ GameObject:
   - component: {fileID: 2026797311}
   - component: {fileID: 2026797310}
   m_Layer: 0
-  m_Name: Sci-Fi_Soldier
+  m_Name: Ally1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1507,8 +1507,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026797309}
   m_LocalRotation: {x: -0, y: 0.97343224, z: -0, w: 0.22897524}
-  m_LocalPosition: {x: 23.62, y: 0.6, z: 13.47}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: 23.623, y: 0.48748, z: 13.465}
+  m_LocalScale: {x: 4.24, y: 4.24, z: 4.24}
   m_Children:
   - {fileID: 1650024937}
   - {fileID: 1330532994}
