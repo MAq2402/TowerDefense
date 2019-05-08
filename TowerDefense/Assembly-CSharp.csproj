@@ -162,6 +162,10 @@
     <Compile Include="Assets\voxel_scifi_free\Standard Assets\Utility\TimedObjectDestructor.cs" />
     <Compile Include="Assets\voxel_scifi_free\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\voxel_scifi_free\Standard Assets\Utility\WaypointProgressTracker.cs" />
+    <Compile Include="Assets\Yurowm\Demo\Scripts\Actions.cs" />
+    <Compile Include="Assets\Yurowm\Demo\Scripts\CharacterPanel.cs" />
+    <Compile Include="Assets\Yurowm\Demo\Scripts\CharacterViewer.cs" />
+    <Compile Include="Assets\Yurowm\Demo\Scripts\PlayerController.cs" />
     <None Include="Assets\voxel_scifi_free\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
     <None Include="Assets\voxel_scifi_free\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
     <None Include="Assets\voxel_scifi_free\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
@@ -182,6 +186,8 @@
     <None Include="Assets\voxel_scifi_free\Standard Assets\Effects\ImageEffects\Shaders\FisheyeShader.shader" />
     <None Include="Assets\voxel_scifi_free\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
     <None Include="Assets\Fonts\Jupiter\LICENSE.txt" />
+    <None Include="Assets\Yurowm\Shaders\SkinShader.shader" />
+    <None Include="Assets\Sci_fi_Drones\Read me.txt" />
     <None Include="Assets\voxel_scifi_free\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
     <None Include="Assets\voxel_scifi_free\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBlur.shader" />
     <None Include="Assets\voxel_scifi_free\Standard Assets\Effects\ImageEffects\Shaders\SSAOShader.shader" />
