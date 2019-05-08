@@ -5,32 +5,44 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
 
-    public float spawnCounter = 3f;
-    public float spawnBreak = 5f;
+    public float spawnCounter = 2f;
+    public float spawnBreak = 15f;
     public int enemyCounter = 0;
+    public int wavesQuantity = 3;
+    public Dictionary<string, int> waves;
+
+    private void Start()
+    {
+        waves = new Dictionary<string, int>();
+        waves.Add("guardian", 3);
+        waves.Add("warrior", 3);
+        waves.Add("robot", 1);
+        waves.Add("scout", 5);
+    }
 
     void Update()
     {   
-            if (spawnCounter <= 0)
+            if (spawnCounter <= 0 && wavesQuantity > 0)
             {
                 StartCoroutine(SpanWave());
                 spawnCounter = spawnBreak;
+            wavesQuantity--;
             }
             spawnCounter -= Time.deltaTime;
     }
 
     public IEnumerator SpanWave()
     {
-        int enemyQuantity = Random.Range(3, 8);
 
-        for (int i = 0; i < enemyQuantity; i++)
+        foreach (KeyValuePair<string, int> entry in waves)
         {
-            if (enemyCounter < ObjectPooler.Instance.poolDictionary["enemy"].Count)
+            for (int i = 0; i < entry.Value; i++)
             {
-                ObjectPooler.Instance.SpawnFromPool("enemy", transform.position, Quaternion.identity);
+                ObjectPooler.Instance.SpawnFromPool(entry.Key, transform.position, Quaternion.identity);
                 enemyCounter++;
                 yield return new WaitForSeconds(0.5f);
-            }  
+            }
+
         }
     }
 
