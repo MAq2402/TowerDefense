@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.AllyMovement;
-using Assets.Scripts.Utility;
+﻿using Assets.Scripts.Utility;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,23 +11,8 @@ public class DefensiveTurret : MonoBehaviour
     private bool hasBeenAlreadyClicked = false;
     private float range = 5f;
     private bool allyHasBeenSpawned = false;
-    private Vector3 allyMovementDirection;
 
     public virtual int Cost { get; set; } = 100;
-    void Start()
-    {
-   
-    }
-
-    private void OnMouseDown()
-    {
-
-    }
-    private void OnMouseUp()
-    {
-
-    }
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -49,13 +33,6 @@ public class DefensiveTurret : MonoBehaviour
                 }
             }
         }
-
-        //if (allyHasBeenSpawned  && allyMovementDirection != null)
-        //{
-        //    //ally.transform.position = Vector3.MoveTowards(ally.transform.position, new Vector3(1, 1, 1), Time.deltaTime * 5);
-        //    ally.transform.Translate(allyMovementDirection.normalized * Time.deltaTime * 2, Space.World);
-        //}
-
     }
     private void UseDrawer()
     {
@@ -91,20 +68,14 @@ public class DefensiveTurret : MonoBehaviour
             SpawnAlly(hit);
         }
     }
+
+    //TODO:Does not work for now, we may reject this functionality
     private void MoveAlly(RaycastHit hit)
     {
         var distanceBetween = Vector3.Distance(hit.point, transform.position);
         if (distanceBetween < range && hit.transform.gameObject.name.Contains(GROUND))
         {
             var direction = hit.transform.position - transform.position;
-            allyMovementDirection = direction;
-            //while(transform.position != hit.transform.position)
-            //{
-            //ally.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            //ally.transform.Translate(direction.normalized * Time.deltaTime * 5, Space.World);
-            //}
-            //ally.GetComponent<AllyMovement>().SetTarget(hit.transform, 5);
-            //ally.GetComponent<AllyMovement>().SetTarget(new Vector3(hit.point.x, hit.point.y, hit.point.z), 5);
         }
     }
 
@@ -129,10 +100,6 @@ public class DefensiveTurret : MonoBehaviour
     private void Sell()
     {
         ShopMenu.AddMoney(Cost / 2);
-        //if (ally != null)
-        //{
-        //    Destroy(ally); //WAT
-        //}
         Destroy(gameObject);
     }
 

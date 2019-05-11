@@ -147,7 +147,6 @@
     <Compile Include="Assets\Imports\Yurowm\Demo\Scripts\CharacterViewer.cs" />
     <Compile Include="Assets\Imports\Yurowm\Demo\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Ally\AllyFight.cs" />
-    <Compile Include="Assets\Scripts\Ally\AllyMovement.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyHealth.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyMovement.cs" />

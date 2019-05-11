@@ -20,9 +20,6 @@ public class EnemyMovement : MonoBehaviour
         this.target = target;
         fights = true;
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-    }
     public void StopFight()
     {
         fights = false;
