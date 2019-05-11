@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Utility;
+﻿using Assets.Scripts.AllyMovement;
+using Assets.Scripts.Utility;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,12 +12,12 @@ public class DefensiveTurret : MonoBehaviour
     private bool hasBeenAlreadyClicked = false;
     private float range = 5f;
     private bool allyHasBeenSpawned = false;
-    private int allyHealth = 3;
+    private Vector3 allyMovementDirection;
 
     public virtual int Cost { get; set; } = 100;
     void Start()
     {
-
+   
     }
 
     private void OnMouseDown()
@@ -40,13 +41,20 @@ public class DefensiveTurret : MonoBehaviour
                 {
                     UseDrawer();
                 }
-                else
+                else if(hasBeenAlreadyClicked)
                 {
                     CallAlly(ray, hit);
                     HideRange();
+                    hasBeenAlreadyClicked = false;
                 }
             }
         }
+
+        //if (allyHasBeenSpawned  && allyMovementDirection != null)
+        //{
+        //    //ally.transform.position = Vector3.MoveTowards(ally.transform.position, new Vector3(1, 1, 1), Time.deltaTime * 5);
+        //    ally.transform.Translate(allyMovementDirection.normalized * Time.deltaTime * 2, Space.World);
+        //}
 
     }
     private void UseDrawer()
@@ -59,6 +67,7 @@ public class DefensiveTurret : MonoBehaviour
         {
             ShowRange();
         }
+        hasBeenAlreadyClicked = !hasBeenAlreadyClicked;
     }
 
     private void ShowRange()
@@ -75,16 +84,28 @@ public class DefensiveTurret : MonoBehaviour
     {
         if (allyHasBeenSpawned)
         {
-            MoveAlly();
+            MoveAlly(hit);
         }
         else
         {
             SpawnAlly(hit);
         }
     }
-    private void MoveAlly()
+    private void MoveAlly(RaycastHit hit)
     {
-        Debug.Log("Move ally");
+        var distanceBetween = Vector3.Distance(hit.point, transform.position);
+        if (distanceBetween < range && hit.transform.gameObject.name.Contains(GROUND))
+        {
+            var direction = hit.transform.position - transform.position;
+            allyMovementDirection = direction;
+            //while(transform.position != hit.transform.position)
+            //{
+            //ally.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            //ally.transform.Translate(direction.normalized * Time.deltaTime * 5, Space.World);
+            //}
+            //ally.GetComponent<AllyMovement>().SetTarget(hit.transform, 5);
+            //ally.GetComponent<AllyMovement>().SetTarget(new Vector3(hit.point.x, hit.point.y, hit.point.z), 5);
+        }
     }
 
     private void SpawnAlly(RaycastHit hit)
@@ -108,6 +129,10 @@ public class DefensiveTurret : MonoBehaviour
     private void Sell()
     {
         ShopMenu.AddMoney(Cost / 2);
+        //if (ally != null)
+        //{
+        //    Destroy(ally); //WAT
+        //}
         Destroy(gameObject);
     }
 

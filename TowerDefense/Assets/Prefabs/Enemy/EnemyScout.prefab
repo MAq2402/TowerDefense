@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1175722677}
   - component: {fileID: 1344504471841210576}
   - component: {fileID: 6629266572327694154}
+  - component: {fileID: 7737532549524870026}
   m_Layer: 0
   m_Name: EnemyScout
   m_TagString: enemy
@@ -122,3 +123,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 5
+--- !u!135 &7737532549524870026
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175722676}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 1.305376, z: 0.0117785055}
