@@ -14,7 +14,7 @@ public class PrimaryTurret : MonoBehaviour
     public int level = 1;
     public float range = 10f;
     public float attackSpeed = 20f;
-    public float attackStrength = 2f;
+    public float attackStrengthRatio = 0.1f;
     public virtual int Cost { get; set; } = 100;
 
     [Header("Transforms")]
@@ -89,7 +89,7 @@ public class PrimaryTurret : MonoBehaviour
     {
         Vector3 towerPosition = this.transform.position;
         var enemiesInRange = this.GetEnemiesInRange(towerPosition, this.range);
-        if(enemiesInRange.Any())
+        if (enemiesInRange.Any())
         {
             this.target = enemiesInRange.OrderBy(e => Vector3.Distance(towerPosition, e.transform.position)).First();
         }
@@ -105,20 +105,21 @@ public class PrimaryTurret : MonoBehaviour
         return allEnemies.Where(e => Vector3.Distance(towerPosition, e.transform.position) < range);
     }
 
-    private void Shoot()
+    protected void Shoot()
     {
         var bulletGO = Instantiate(bulletPrefab, attackPoint.position, attackPoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
-        if(bullet != null)
+        if (bullet != null)
         {
+            bullet.SetStrengthRatio(attackStrengthRatio);
             bullet.SetTarget(target?.transform);
         }
     }
 
     protected virtual void UpdateView()
     {
-        if(this.target)
+        if (this.target)
         {
             Vector3 directionVector = this.target.transform.position - this.transform.position;
             Quaternion fromQuaterion = this.rotatingPart.rotation;

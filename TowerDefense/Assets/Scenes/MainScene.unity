@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44983447, g: 0.4999019, b: 0.5755934, a: 1}
+  m_IndirectSpecularColor: {r: 0.44983423, g: 0.4999017, b: 0.5755926, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4262,7 +4262,7 @@ PrefabInstance:
     - target: {fileID: 5339325256744855817, guid: ee969cb356056f743874ccab1ef04984,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuyLongRangeTurretTurret
+      value: BuyLongRangeTurret
       objectReference: {fileID: 0}
     - target: {fileID: 5339325256744855817, guid: ee969cb356056f743874ccab1ef04984,
         type: 3}
@@ -7511,7 +7511,7 @@ PrefabInstance:
     - target: {fileID: 5339325256744855817, guid: ee969cb356056f743874ccab1ef04984,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: BuyLaserTurret
       objectReference: {fileID: 0}
     - target: {fileID: 5339325256744855817, guid: ee969cb356056f743874ccab1ef04984,
         type: 3}
@@ -12448,6 +12448,12 @@ MonoBehaviour:
     turretPrototypePrefab: {fileID: 6699232595000013896, guid: 0f2cc8e73c400b04c9f96d852ded2bcf,
       type: 3}
     cost: 100
+  laserTurret:
+    turretPrefab: {fileID: 1427636317312509326, guid: 9fd7eef85ce398a46a1d6fadde20a386,
+      type: 3}
+    turretPrototypePrefab: {fileID: 1427636317312509326, guid: 2aa109ba31fed0e43b55727fd3ef0589,
+      type: 3}
+    cost: 300
   buyPrimaryTurretButton: {fileID: 2147347800}
   buyBasicDefensiveTurretButton: {fileID: 1211549009}
   buyLongRangeTurretButton: {fileID: 1596558567}

@@ -562,7 +562,7 @@ MonoBehaviour:
   level: 1
   range: 12
   attackSpeed: 15
-  attackStrength: 2
+  attackStrengthRatio: 0.5
   rotatingPart: {fileID: 400016}
   attackPoint: {fileID: 400010}
   bulletPrefab: {fileID: 7254719301701317269, guid: 216237590ea799c4c95f820efd8d7bbd,
