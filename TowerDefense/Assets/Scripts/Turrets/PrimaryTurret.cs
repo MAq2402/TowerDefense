@@ -14,7 +14,7 @@ public class PrimaryTurret : MonoBehaviour
     public int level = 1;
     public float range = 10f;
     public float attackSpeed = 20f;
-    public float attackStrength = 2f;
+    public float attackStrengthRatio = 0.1f;
     public virtual int Cost { get; set; } = 100;
 
     [Header("Transforms")]
@@ -105,7 +105,7 @@ public class PrimaryTurret : MonoBehaviour
         return allEnemies.Where(e => Vector3.Distance(towerPosition, e.transform.position) < range);
     }
 
-    private void Shoot()
+    protected void Shoot()
     {
         var bulletGO = Instantiate(bulletPrefab, attackPoint.position, attackPoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
