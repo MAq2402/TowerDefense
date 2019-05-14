@@ -7,14 +7,25 @@ public class EnemyMovement : MonoBehaviour
 
     public float enemySpeed = 5f;
     private Transform target;
-    private int wayPointIndex = 0; 
+    private int wayPointIndex = 0;
+    private bool fights = false;
 
     void Start()
     {
         target = Way.wayPoints[0];
     }
 
-    
+    public void Fight(Transform target)
+    {
+        this.target = target;
+        fights = true;
+    }
+    public void StopFight()
+    {
+        fights = false;
+        target = Way.wayPoints[wayPointIndex];
+    }
+
     void Update()
     {
         Vector3 direction = target.position - transform.position;
@@ -22,14 +33,14 @@ public class EnemyMovement : MonoBehaviour
         transform.rotation = rotation;
         transform.Translate(direction.normalized * enemySpeed * Time.deltaTime, Space.World);
 
-        if (Vector3.Distance(transform.position, target.position) < 0.4f)
+        if (Vector3.Distance(transform.position, target.position) < 0.4f && !fights)
         {
             GetNextWayPoint();
         }
 
     }
 
-    void GetNextWayPoint()
+    private void GetNextWayPoint()
     {
         if (wayPointIndex >= Way.wayPoints.Length - 1)
         {
@@ -40,6 +51,5 @@ public class EnemyMovement : MonoBehaviour
             wayPointIndex++;
             target = Way.wayPoints[wayPointIndex];
         }
-       
     }
 }
