@@ -41,6 +41,19 @@ namespace Assets.Scripts.Utility
             }
         }
 
+        public static void DrawLaserBeam(LineRenderer line, Vector3 positionFrom, Vector3 positionTo, float width, Color color)
+        {
+            line.material = new Material(Shader.Find("Particles/Standard Surface"));
+            line.positionCount = 2;
+            line.useWorldSpace = true;
+            line.startWidth = width;
+            line.endWidth = width;
+            line.startColor = color;
+            line.endColor = color;
+            line.SetPosition(0, positionFrom);
+            line.SetPosition(1, positionTo);
+        }
+
         public static void DrawEmpty(LineRenderer line)
         {
             line.positionCount = 0;

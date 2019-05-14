@@ -13,6 +13,7 @@ public class ShopMenu : MonoBehaviour
     public TurretPrototype primaryTurret;
     public TurretPrototype longRangeTurret;
     public TurretPrototype basicDefensiveTurret;
+    public TurretPrototype laserTurret;
 
     public Button buyPrimaryTurretButton;
     public Button buyBasicDefensiveTurretButton;
@@ -30,14 +31,19 @@ public class ShopMenu : MonoBehaviour
     {
         builder.SetTurretToBuild(basicDefensiveTurret);
     }
-    public void BuyLongRangeTurretTurret()
+    public void BuyLongRangeTurret()
     {
         builder.SetTurretToBuild(longRangeTurret);
+    }
+    public void BuyLaserTurret()
+    {
+        builder.SetTurretToBuild(laserTurret);
     }
 
     public bool EnoughMoneyForPrimaryTurret { get => Money >= primaryTurret.cost; }
     public bool EnoughMoneyForLongRangeTurret { get => Money >= longRangeTurret.cost; }
     public bool EnoughBasicDefensiveTurret { get => Money >= basicDefensiveTurret.cost; }
+    public bool EnoughMoneyLaserTurret { get => Money >= laserTurret.cost; }
 
     public static void AddMoney(int amount)
     {
@@ -71,7 +77,7 @@ public class ShopMenu : MonoBehaviour
         buyLongRangeTurretButton.interactable = EnoughMoneyForLongRangeTurret;
         buyQuickShootTurretButton.interactable = false;
         buyMissileLauncherButton.interactable = false;
-        buyLaserTurretButton.interactable = false;
+        buyLaserTurretButton.interactable = EnoughMoneyLaserTurret;
         moneyAmountText.text = $"Money: {Money}$";
     }
 }

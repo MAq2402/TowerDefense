@@ -18,4 +18,15 @@ public class EnemyHealth : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void DecreaseHealth(float ratio)
+    {
+        if (ratio > 1) ratio = 1.0f;
+        currentHealth -= healthDecreaseSpeed * ratio;
+        if (currentHealth <= 0)
+        {
+            ShopMenu.AddMoney(moneyForKilling);
+            Destroy(gameObject);
+        }
+    }
 }
