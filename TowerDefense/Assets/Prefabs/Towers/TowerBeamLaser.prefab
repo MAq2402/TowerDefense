@@ -193,8 +193,7 @@ MonoBehaviour:
   attackStrengthRatio: 0.1
   rotatingPart: {fileID: 1427636317312547250}
   attackPoint: {fileID: 1427636317312547244}
-  bulletPrefab: {fileID: 0}
-  laserBeamPrefab: {fileID: 7254719301701317269, guid: c76665e12ccbe76428b80199c7d55a22,
+  projectilePrefab: {fileID: 7254719301701317269, guid: c76665e12ccbe76428b80199c7d55a22,
     type: 3}
 --- !u!1 &1427636317312509328
 GameObject:

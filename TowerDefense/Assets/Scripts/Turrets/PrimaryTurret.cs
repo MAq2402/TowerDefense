@@ -22,7 +22,7 @@ public class PrimaryTurret : MonoBehaviour
     public Transform attackPoint;
 
     [Header("Prfabs")]
-    public GameObject bulletPrefab;
+    public GameObject projectilePrefab;
 
     protected GameObject target;
     protected string targetTag = "enemy";
@@ -107,13 +107,13 @@ public class PrimaryTurret : MonoBehaviour
 
     protected void Shoot()
     {
-        var bulletGO = Instantiate(bulletPrefab, attackPoint.position, attackPoint.rotation);
-        Bullet bullet = bulletGO.GetComponent<Bullet>();
-
-        if (bullet != null)
+        var projectileGO = Instantiate(projectilePrefab, attackPoint.position, attackPoint.rotation);
+        Projectile projectile = projectileGO.GetComponent<Projectile>();
+        
+        if (projectile != null)
         {
-            bullet.SetStrengthRatio(attackStrengthRatio);
-            bullet.SetTarget(target?.transform);
+            projectile.SetStrengthRatio(attackStrengthRatio);
+            projectile.SetTarget(target?.transform);
         }
     }
 

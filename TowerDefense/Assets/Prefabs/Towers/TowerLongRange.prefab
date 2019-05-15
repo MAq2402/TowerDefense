@@ -565,7 +565,7 @@ MonoBehaviour:
   attackStrengthRatio: 0.5
   rotatingPart: {fileID: 400016}
   attackPoint: {fileID: 400010}
-  bulletPrefab: {fileID: 7254719301701317269, guid: 216237590ea799c4c95f820efd8d7bbd,
+  projectilePrefab: {fileID: 7254719301701317269, guid: 216237590ea799c4c95f820efd8d7bbd,
     type: 3}
   verticalRotatingPart: {fileID: 5997962166150428627}
 --- !u!1 &608116549804623014
