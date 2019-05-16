@@ -17,9 +17,18 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("MainScene");
     }
 
-    public void GameEnd(int killedEnemies)
+    public void GameEnd()
     {
         SceneManager.LoadScene("GameEnd");
-        KilledEnemies.setKilledEnemies(killedEnemies);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }

@@ -60,6 +60,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Imports\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
+    <Compile Include="Assets\Imports\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
+    <Compile Include="Assets\Imports\EffectExamples\Shared\Scripts\GunAim.cs" />
+    <Compile Include="Assets\Imports\EffectExamples\Shared\Scripts\GunShoot.cs" />
+    <Compile Include="Assets\Imports\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
+    <Compile Include="Assets\Imports\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
+    <Compile Include="Assets\Imports\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
+    <Compile Include="Assets\Imports\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Imports\voxel_scifi_free\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
     <Compile Include="Assets\Imports\voxel_scifi_free\Standard Assets\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
     <Compile Include="Assets\Imports\voxel_scifi_free\Standard Assets\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" />
@@ -159,7 +167,6 @@
     <Compile Include="Assets\Scripts\Game\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Game\Lives.cs" />
     <Compile Include="Assets\Scripts\Game\PlayerStatitstics.cs" />
-    <Compile Include="Assets\Scripts\KilledEnemies.cs" />
     <Compile Include="Assets\Scripts\Nodes\Node.cs" />
     <Compile Include="Assets\Scripts\ShopMenu\BottomPanel.cs" />
     <Compile Include="Assets\Scripts\ShopMenu\ShopMenu.cs" />
@@ -175,6 +182,7 @@
     <None Include="Assets\Imports\voxel_scifi_free\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
     <None Include="Assets\Imports\voxel_scifi_free\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
     <None Include="Assets\Imports\voxel_scifi_free\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
+    <None Include="Assets\Imports\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
     <None Include="Assets\Imports\voxel_scifi_free\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurves.shader" />
     <None Include="Assets\Imports\voxel_scifi_free\Standard Assets\Effects\ImageEffects\Shaders\ScreenSpaceAmbientObscurance.shader" />
     <None Include="Assets\Imports\voxel_scifi_free\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\NFAA.shader" />
