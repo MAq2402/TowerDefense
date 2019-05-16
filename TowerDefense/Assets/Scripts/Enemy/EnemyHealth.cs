@@ -15,7 +15,11 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             ShopMenu.AddMoney(moneyForKilling);
+            Debug.Log("pyk");
+            Debug.Log(PlayerStatitstics.killedEnemies);
             Destroy(gameObject);
+          //  GameObject.Find("GameMaster").GetComponent<PlayerStatitstics>().increaseKilledEnemies();
+
         }
     }
 
@@ -27,6 +31,7 @@ public class EnemyHealth : MonoBehaviour
         {
             ShopMenu.AddMoney(moneyForKilling);
             Destroy(gameObject);
+            PlayerStatitstics.increaseKilledEnemies();
         }
     }
 }

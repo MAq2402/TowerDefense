@@ -74,7 +74,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 076aaac8f9e5ac34faa7d04416addef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerLives: 1
 --- !u!114 &39945893673627379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,3 +86,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5bf9e06b6ac7084f831309cf0276ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killedEnemies: {fileID: 0}
