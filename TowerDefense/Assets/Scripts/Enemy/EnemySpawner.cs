@@ -18,6 +18,14 @@ public class EnemySpawner : MonoBehaviour
         waves.Add("warrior", 3);
         waves.Add("robot", 1);
         waves.Add("scout", 5);
+
+        foreach (KeyValuePair<string, int> entry in waves)
+        {
+            enemyCounter += entry.Value;        
+        }
+
+        enemyCounter *= wavesQuantity;
+      
     }
 
     void Update()
@@ -39,7 +47,7 @@ public class EnemySpawner : MonoBehaviour
             for (int i = 0; i < entry.Value; i++)
             {
                 ObjectPooler.Instance.SpawnFromPool(entry.Key, transform.position, Quaternion.identity);
-                enemyCounter++;
+             //   enemyCounter++;
                 yield return new WaitForSeconds(0.5f);
             }
 

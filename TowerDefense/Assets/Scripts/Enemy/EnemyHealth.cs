@@ -27,6 +27,7 @@ public class EnemyHealth : MonoBehaviour
         {
             ShopMenu.AddMoney(moneyForKilling);
             Destroy(gameObject);
+            PlayerStatitstics.increaseKilledEnemies();
         }
     }
 }
