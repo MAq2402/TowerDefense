@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 701876626393593228}
   - component: {fileID: 2053443526317135626}
   - component: {fileID: 1523761589136130218}
+  - component: {fileID: 8682945925887999920}
   m_Layer: 0
   m_Name: EnemySfiWarrior
   m_TagString: enemy
@@ -393,6 +394,19 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   healthDecreaseSpeed: 10
+--- !u!135 &8682945925887999920
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880484004244674318}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &938464648236437565
 GameObject:
   m_ObjectHideFlags: 0
