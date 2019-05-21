@@ -9,7 +9,6 @@ public class EnemyMovement : MonoBehaviour
     private Transform target;
     private int wayPointIndex = 0;
     private bool fights = false;
-
     void Start()
     {
         target = Way.wayPoints[0];
@@ -24,20 +23,40 @@ public class EnemyMovement : MonoBehaviour
     {
         fights = false;
         target = Way.wayPoints[wayPointIndex];
-    }
-
-    void Update()
-    {
-        Vector3 direction = target.position - transform.position;
-        Quaternion rotation = target.rotation;
-        transform.rotation = rotation;
-        transform.Translate(direction.normalized * enemySpeed * Time.deltaTime, Space.World);
-
-        if (Vector3.Distance(transform.position, target.position) < 0.4f && !fights)
+        if (Vector3.Distance(transform.position, target.position) < 0.4f)
         {
             GetNextWayPoint();
         }
+    }
+    void Update()
+    {
+        if (fights)
+        {
+            FaceTowardsTarget();
+       
+        }
+        else
+        {
+            Vector3 direction = target.position - transform.position;
+            Quaternion rotation = target.rotation;
+            transform.rotation = rotation;
+            transform.Translate(direction.normalized * enemySpeed * Time.deltaTime, Space.World);
 
+            if (Vector3.Distance(transform.position, target.position) < 0.4f)
+            {
+                GetNextWayPoint();
+            }
+        }
+    }
+
+    private void FaceTowardsTarget()
+    {
+        if(target !=null)
+        {
+            var targetRotation = Quaternion.LookRotation(target.transform.position - transform.position);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 1);
+        }
+       
     }
 
     private void GetNextWayPoint()

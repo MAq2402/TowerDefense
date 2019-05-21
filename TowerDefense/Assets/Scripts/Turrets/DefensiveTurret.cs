@@ -6,11 +6,14 @@ using UnityEngine;
 
 public class DefensiveTurret : MonoBehaviour
 {
+    private const float resurectionCooldownValue = 1;
     private const string GROUND = "Ground";
     public GameObject ally;
     private bool hasBeenAlreadyClicked = false;
     private float range = 5f;
     private bool allyHasBeenSpawned = false;
+    private RaycastHit positionOfAlly;
+    private float resurectionCooldown = resurectionCooldownValue;
 
     public virtual int Cost { get; set; } = 100;
     void Update()
@@ -27,13 +30,28 @@ public class DefensiveTurret : MonoBehaviour
                 }
                 else if(hasBeenAlreadyClicked)
                 {
-                    CallAlly(ray, hit);
+                    SpawnAlly(hit);
                     HideRange();
                     hasBeenAlreadyClicked = false;
                 }
             }
         }
+        //Will work on that
+        //if (!ally.activeInHierarchy && allyHasBeenSpawned){
+        //    StartCounter();
+        //}
+        //if(resurectionCooldown <= 0)
+        //{
+        //    resurectionCooldown = resurectionCooldownValue;
+        //    ResurrectAlly();
+        //}
     }
+
+    private void StartCounter()
+    {
+        resurectionCooldown -= Time.deltaTime;
+    }
+
     private void UseDrawer()
     {
         if (hasBeenAlreadyClicked)
@@ -56,37 +74,23 @@ public class DefensiveTurret : MonoBehaviour
     {
         Drawer.DrawEmpty(gameObject.GetComponent<LineRenderer>());
     }
-
-    private void CallAlly(Ray ray, RaycastHit hit)
+    private void ResurrectAlly()
     {
-        if (allyHasBeenSpawned)
-        {
-            MoveAlly(hit);
-        }
-        else
-        {
-            SpawnAlly(hit);
-        }
-    }
-
-    //TODO:Does not work for now, we may reject this functionality
-    private void MoveAlly(RaycastHit hit)
-    {
-        var distanceBetween = Vector3.Distance(hit.point, transform.position);
-        if (distanceBetween < range && hit.transform.gameObject.name.Contains(GROUND))
-        {
-            var direction = hit.transform.position - transform.position;
-        }
+        ally.SetActive(true);
     }
 
     private void SpawnAlly(RaycastHit hit)
     {
-        var distanceBetween = Vector3.Distance(hit.point, transform.position);
-        if (distanceBetween < range && hit.transform.gameObject.name.Contains(GROUND))
+        if (!allyHasBeenSpawned)
         {
-            Instantiate(ally, new Vector3(hit.point.x, hit.point.y, hit.point.z), hit.transform.rotation);
-            allyHasBeenSpawned = true;
-        }
+            var distanceBetween = Vector3.Distance(hit.point, transform.position);
+            if (distanceBetween < range && hit.transform.gameObject.name.Contains(GROUND))
+            {
+                Instantiate(ally, new Vector3(hit.point.x, hit.point.y, hit.point.z), hit.transform.rotation);
+                positionOfAlly = hit;
+                allyHasBeenSpawned = true;
+            }
+        } 
     }
 
     void OnMouseOver()
