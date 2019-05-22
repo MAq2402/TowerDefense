@@ -1354,6 +1354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4faff0353085345a62d0a309935a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allyHealth: 2000
+  attackRatio: 0.05
 --- !u!54 &6964367145432317162
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1381,7 +1383,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7859997681554031052
 GameObject:

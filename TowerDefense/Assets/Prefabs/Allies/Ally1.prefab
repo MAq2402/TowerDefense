@@ -1585,6 +1585,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4faff0353085345a62d0a309935a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allyHealth: 500
+  attackRatio: 0.1
 --- !u!54 &689289287909259713
 Rigidbody:
   m_ObjectHideFlags: 0

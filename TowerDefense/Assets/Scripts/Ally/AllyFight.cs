@@ -9,7 +9,9 @@ namespace Assets.Scripts.Ally
 {
     public class AllyFight : MonoBehaviour
     {
-        private double allyHealth = 500;
+        public int allyHealth;
+        public float attackRatio;
+        private int healthLoss = 10;
         private GameObject enemy;
         private EnemyHealth enemyHealth;
         private EnemyMovement enemyMovement;
@@ -47,8 +49,8 @@ namespace Assets.Scripts.Ally
             if(enemy != null)
             {
                 FaceTowardsEnemy();
-                allyHealth -= 10;
-                enemyHealth.DecreaseHealth(0.1f);
+                allyHealth -= healthLoss;
+                enemyHealth.DecreaseHealth(attackRatio);
                 allyCollider.enabled = true;
             }
             else if(animator !=null)
