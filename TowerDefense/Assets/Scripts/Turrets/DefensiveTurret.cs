@@ -10,7 +10,7 @@ public class DefensiveTurret : MonoBehaviour
     private const string GROUND = "Ground";
     public GameObject ally;
     private bool hasBeenAlreadyClicked = false;
-    private float range = 5f;
+    public float range;
     private bool allyHasBeenSpawned = false;
     private RaycastHit positionOfAlly;
     private float resurectionCooldown = resurectionCooldownValue;
