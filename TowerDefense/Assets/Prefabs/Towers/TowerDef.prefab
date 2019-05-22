@@ -312,6 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ally: {fileID: 2026797309, guid: 6145be48a78d2444097742c519af7b9a, type: 3}
+  range: 5
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 0
