@@ -13,6 +13,7 @@ public class ShopMenu : MonoBehaviour
     public TurretPrototype primaryTurret;
     public TurretPrototype longRangeTurret;
     public TurretPrototype basicDefensiveTurret;
+    public TurretPrototype superDefensiveTurret;
     public TurretPrototype laserTurret;
 
     public Button buyPrimaryTurretButton;
@@ -21,6 +22,7 @@ public class ShopMenu : MonoBehaviour
     public Button buyQuickShootTurretButton;
     public Button buyMissileLauncherButton;
     public Button buyLaserTurretButton;
+    public Button buySuperDefensiveTurretButton;
     public Text moneyAmountText;
 
     public void BuyPrimaryTurret()
@@ -31,6 +33,11 @@ public class ShopMenu : MonoBehaviour
     {
         builder.SetTurretToBuild(basicDefensiveTurret);
     }
+
+    public void BuySuperDefensiveTurret()
+    {
+        builder.SetTurretToBuild(superDefensiveTurret);
+    }
     public void BuyLongRangeTurret()
     {
         builder.SetTurretToBuild(longRangeTurret);
@@ -39,12 +46,6 @@ public class ShopMenu : MonoBehaviour
     {
         builder.SetTurretToBuild(laserTurret);
     }
-
-    public bool EnoughMoneyForPrimaryTurret { get => Money >= primaryTurret.cost; }
-    public bool EnoughMoneyForLongRangeTurret { get => Money >= longRangeTurret.cost; }
-    public bool EnoughBasicDefensiveTurret { get => Money >= basicDefensiveTurret.cost; }
-    public bool EnoughMoneyLaserTurret { get => Money >= laserTurret.cost; }
-
     public static void AddMoney(int amount)
     {
         if (amount < 0)
@@ -72,12 +73,18 @@ public class ShopMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        buyPrimaryTurretButton.interactable = EnoughMoneyForPrimaryTurret;
-        buyBasicDefensiveTurretButton.interactable = EnoughBasicDefensiveTurret;
-        buyLongRangeTurretButton.interactable = EnoughMoneyForLongRangeTurret;
+        buyPrimaryTurretButton.interactable = CheckIfEnoughMoney(primaryTurret);
+        buyBasicDefensiveTurretButton.interactable = CheckIfEnoughMoney(basicDefensiveTurret);
+        buyLongRangeTurretButton.interactable = CheckIfEnoughMoney(longRangeTurret);
+        buySuperDefensiveTurretButton.interactable = CheckIfEnoughMoney(superDefensiveTurret);
         buyQuickShootTurretButton.interactable = false;
         buyMissileLauncherButton.interactable = false;
-        buyLaserTurretButton.interactable = EnoughMoneyLaserTurret;
+        buyLaserTurretButton.interactable = CheckIfEnoughMoney(laserTurret);
         moneyAmountText.text = $"Money: {Money}$";
+    }
+
+    private bool CheckIfEnoughMoney(TurretPrototype turret)
+    {
+        return Money >= turret.cost;
     }
 }
