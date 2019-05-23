@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4492231, g: 0.4992962, b: 0.57571125, a: 1}
+  m_IndirectSpecularColor: {r: 0.44922286, g: 0.49929595, b: 0.5757104, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -22407,7 +22407,6 @@ GameObject:
   - component: {fileID: 1693106471}
   - component: {fileID: 1693106470}
   - component: {fileID: 1693106472}
-  - component: {fileID: 1693106473}
   m_Layer: 5
   m_Name: Lives
   m_TagString: Untagged
@@ -22497,19 +22496,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1693106473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1693106468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 455eb3de2bd660c4bad695e18bda5039, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  livesQuantity: {fileID: 1693106470}
 --- !u!1001 &1696805484
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28449,6 +28435,11 @@ PrefabInstance:
       propertyPath: playerLives
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 39945893673627391, guid: 37bcf6c7025a27e4bac0acc887e1ca40,
+        type: 3}
+      propertyPath: livesQuantity
+      value: 
+      objectReference: {fileID: 1693106470}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37bcf6c7025a27e4bac0acc887e1ca40, type: 3}
 --- !u!1001 &218725829947236098

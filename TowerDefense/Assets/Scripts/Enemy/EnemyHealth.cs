@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* This class is responsilble for managing enemies health */
+/*Author: Martyna Drabińska*/
 public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth = 100f;
@@ -9,15 +11,6 @@ public class EnemyHealth : MonoBehaviour
     public float healthDecreaseSpeed = 5f;
 
     private const int moneyForKilling = 20;
-    public void DecreaseHealth()
-    {
-        currentHealth -= healthDecreaseSpeed;
-        if (currentHealth <= 0)
-        {
-            ShopMenu.AddMoney(moneyForKilling);
-            Destroy(gameObject);
-        }
-    }
 
     /* Author: Bartłomiej Krasoń */
     public void DecreaseHealth(float ratio)
@@ -28,7 +21,7 @@ public class EnemyHealth : MonoBehaviour
         {
             ShopMenu.AddMoney(moneyForKilling);
             Destroy(gameObject);
-            PlayerStatitstics.increaseKilledEnemies();
+            PlayerStatistics.increaseKilledEnemies();
         }
     }
 }
