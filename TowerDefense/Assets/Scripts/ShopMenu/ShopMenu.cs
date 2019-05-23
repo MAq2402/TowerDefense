@@ -33,7 +33,6 @@ public class ShopMenu : MonoBehaviour
     {
         builder.SetTurretToBuild(basicDefensiveTurret);
     }
-
     public void BuySuperDefensiveTurret()
     {
         builder.SetTurretToBuild(superDefensiveTurret);
@@ -42,6 +41,8 @@ public class ShopMenu : MonoBehaviour
     {
         builder.SetTurretToBuild(longRangeTurret);
     }
+
+    /* Author: Bartłomiej Krasoń */
     public void BuyLaserTurret()
     {
         builder.SetTurretToBuild(laserTurret);

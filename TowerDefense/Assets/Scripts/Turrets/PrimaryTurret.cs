@@ -5,7 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-
+/*
+ * Author: Bartłomiej Krasoń
+ * PrimaryTurret class represents base data/actions for all towers
+ *  it is also used as specific class (it means no special data/actions added) for Primary Tower 
+ */
 [RequireComponent(typeof(LineRenderer))]
 public class PrimaryTurret : MonoBehaviour
 {
@@ -30,29 +34,31 @@ public class PrimaryTurret : MonoBehaviour
     protected float rotateSpeed = 10f;
 
 
-
-    // Start is called before the first frame update
+    /* Author: Bartłomiej Krasoń */
     void Start()
     {
         this.OnStart();
     }
 
-    // Update is called once per frame
+    /* Author: Bartłomiej Krasoń */
     void Update()
     {
         this.OnUpdate();
     }
 
+    /* Author: Bartłomiej Krasoń */
     void OnMouseEnter()
     {
         this.ShowRange();
     }
 
+    /* Author: Bartłomiej Krasoń */
     void OnMouseExit()
     {
         this.HideRange();
     }
 
+    /* Author: Bartłomiej Krasoń */
     void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(1))
@@ -61,11 +67,13 @@ public class PrimaryTurret : MonoBehaviour
         }
     }
 
+    /* Author: Bartłomiej Krasoń */
     protected void OnStart()
     {
         InvokeRepeating("UpdateTargets", 0f, 0.5f);
     }
 
+    /* Author: Bartłomiej Krasoń */
     protected void OnUpdate()
     {
         UpdateView();
@@ -79,12 +87,14 @@ public class PrimaryTurret : MonoBehaviour
         attackCountdown -= Time.deltaTime;
     }
 
+    /* Author: Michał Miciak */
     private void Sell()
     {
         ShopMenu.AddMoney(Cost / 2);
         Destroy(gameObject);
     }
 
+    /* Author: Bartłomiej Krasoń */
     protected void UpdateTargets()
     {
         Vector3 towerPosition = this.transform.position;
@@ -99,12 +109,14 @@ public class PrimaryTurret : MonoBehaviour
         }
     }
 
+    /* Author: Bartłomiej Krasoń */
     protected IEnumerable<GameObject> GetEnemiesInRange(Vector3 towerPosition, float range)
     {
         List<GameObject> allEnemies = GameObject.FindGameObjectsWithTag(this.targetTag).ToList<GameObject>();
         return allEnemies.Where(e => Vector3.Distance(towerPosition, e.transform.position) < range);
     }
 
+    /* Author: Michał Miciak */
     protected void Shoot()
     {
         var projectileGO = Instantiate(projectilePrefab, attackPoint.position, attackPoint.rotation);
@@ -117,6 +129,7 @@ public class PrimaryTurret : MonoBehaviour
         }
     }
 
+    /* Author: Bartłomiej Krasoń */
     protected virtual void UpdateView()
     {
         if (this.target)
@@ -128,6 +141,7 @@ public class PrimaryTurret : MonoBehaviour
         }
     }
 
+    /* Author: Bartłomiej Krasoń */
     private void ShowRange()
     {
         Drawer.DrawCircleOnSurface(
@@ -137,6 +151,7 @@ public class PrimaryTurret : MonoBehaviour
             Color.green);
     }
 
+    /* Author: Bartłomiej Krasoń */
     private void HideRange()
     {
         Drawer.DrawEmpty(

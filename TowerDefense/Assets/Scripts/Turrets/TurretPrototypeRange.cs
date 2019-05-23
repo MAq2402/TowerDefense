@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Utility;
 
+/*
+ * Author: Bartłomiej Krasoń
+ * TurretPrototypeRange class provides needed action when instantiate turrets at main scene 
+ */
 public class TurretPrototypeRange : MonoBehaviour
 {
     public float range;
-    // Start is called before the first frame update
+
+    /* Author: Bartłomiej Krasoń */
     void Start()
     {
         Drawer.DrawCircleOnSurface(

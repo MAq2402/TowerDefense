@@ -7,12 +7,15 @@ using UnityEngine;
 
 namespace Assets.Scripts.Utility
 {
+    /*
+     * Author: Bartłomiej Krasoń
+     * Drawer class represents service which draws elements using LineRenderer component of objects
+     *  which draw something on main scene
+     */
     public static class Drawer
     {
-        /*GameObject wich draws Circle needs two components:
-            - LineRenderer
-            - Maretial with type of Particles / Standard Surface
-         */
+
+        /* Author: Bartłomiej Krasoń */
         public static void DrawCircleOnSurface(LineRenderer line, float radius, float width, Color color)
         {
             int segments = 50;
@@ -41,6 +44,7 @@ namespace Assets.Scripts.Utility
             }
         }
 
+        /* Author: Bartłomiej Krasoń */
         public static void DrawLaserBeam(LineRenderer line, Vector3 positionFrom, Vector3 positionTo, float width, Color color)
         {
             line.material = new Material(Shader.Find("Particles/Standard Surface"));
@@ -54,6 +58,7 @@ namespace Assets.Scripts.Utility
             line.SetPosition(1, positionTo);
         }
 
+        /* Author: Bartłomiej Krasoń */
         public static void DrawEmpty(LineRenderer line)
         {
             line.positionCount = 0;

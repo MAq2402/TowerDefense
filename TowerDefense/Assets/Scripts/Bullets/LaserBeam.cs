@@ -4,10 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Utility;
 
+/*
+ * Author: Bartłomiej Krasoń
+ * LaserBeam class represents specific projectile for: 
+ *  LaserTurret
+ */
 public class LaserBeam : Projectile
 {
     private bool frameFlag = false;
-    // Update is called once per frame
+
+    /* Author: Bartłomiej Krasoń */
     void Update()
     {
         if (target == null)
@@ -27,6 +33,7 @@ public class LaserBeam : Projectile
         }
     }
 
+    /* Author: Bartłomiej Krasoń */
     private void DrawLaserBeam()
     {
         Drawer.DrawEmpty(gameObject.GetComponent<LineRenderer>());

@@ -2,25 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Author: Bartłomiej Krasoń
+ * LongRangeTurret class represents specific data/actions for Long Range Tower 
+ */
 public class LongRangeTurret : PrimaryTurret
 {
-    // Start is called before the first frame update
     [Header("LongRangeTurret specifications")]
     public Transform verticalRotatingPart;
 
     public override int Cost { get; set; } = 200;
 
+    /* Author: Bartłomiej Krasoń */
     void Start()
     {
         base.OnStart();
     }
 
-    // Update is called once per frame
+    /* Author: Bartłomiej Krasoń */
     void Update()
     {
         base.OnUpdate();
     }
 
+    /* Author: Bartłomiej Krasoń */
     protected override void UpdateView()
     {
         if (this.target)

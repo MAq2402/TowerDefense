@@ -19,6 +19,7 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    /* Author: Bartłomiej Krasoń */
     public void DecreaseHealth(float ratio)
     {
         if (ratio > 1) ratio = 1.0f;

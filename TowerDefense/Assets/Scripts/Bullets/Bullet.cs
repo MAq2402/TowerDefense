@@ -3,12 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Author: Michał Miciak
+ * Bullet class represents specific projectile for: 
+ *  PrimaryTurret, LongRangeTurret
+ */
 public class Bullet : Projectile
 {
-    // Start is called before the first frame update
     public float speed = 70f;
 
-    // Update is called once per frame
+    /* Author: Michał Miciak */
     void Update()
     {
         if(target == null)

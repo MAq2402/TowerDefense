@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ * Author: Bartłomiej Krasoń
+ * BottomPanel class represents bottom panel in shop HUD which contains turret icons,
+ *  which allow user to buy turrets
+ */
 public class BottomPanel : MonoBehaviour
 {
     public GameObject bottomPanel;
@@ -12,6 +17,7 @@ public class BottomPanel : MonoBehaviour
     private Vector3 moveBottomPanelVecotr = new Vector3(0.0f, 100.0f, 0.0f);
     private bool isBottomPanelHidden = false;
 
+    /* Author: Bartłomiej Krasoń */
     public void ToggleBottomPanel()
     {
         if (isBottomPanelHidden)
@@ -24,6 +30,7 @@ public class BottomPanel : MonoBehaviour
         }
     }
 
+    /* Author: Bartłomiej Krasoń */
     private void HidePanel()
     {
         if (isBottomPanelHidden)
@@ -34,6 +41,8 @@ public class BottomPanel : MonoBehaviour
         toggleButtonText.text = "^ EXPAND ^";
         isBottomPanelHidden = true;
     }
+
+    /* Author: Bartłomiej Krasoń */
     private void ShowPanel()
     {
         if (!isBottomPanelHidden)

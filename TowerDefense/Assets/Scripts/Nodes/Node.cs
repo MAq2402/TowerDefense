@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Author: Bartłomiej Krasoń
+ * Node class represents single plate of ground in main scene 
+ */
 public class Node : MonoBehaviour
 {
     public Vector3 placementOffset;
@@ -10,13 +14,15 @@ public class Node : MonoBehaviour
     public GameObject turret;
 
     private Builder builder;
-    // Start is called before the first frame update
+
+    /* Author: Bartłomiej Krasoń */
     void Start()
     {
         turret = null;
         builder = Builder.Instance;
     }
 
+    /* Author: Bartłomiej Krasoń */
     void OnMouseDown()
     {
         if(builder.TurretToBuildSelected)
@@ -25,6 +31,7 @@ public class Node : MonoBehaviour
         }
     }
 
+    /* Author: Bartłomiej Krasoń */
     void OnMouseEnter()
     {
         if (builder.TurretToBuildSelected)
@@ -33,6 +40,7 @@ public class Node : MonoBehaviour
         }
     }
 
+    /* Author: Bartłomiej Krasoń */
     void OnMouseExit()
     {
         if (builder.TurretToBuildSelected)
@@ -41,11 +49,13 @@ public class Node : MonoBehaviour
         }
     }
 
+    /* Author: Bartłomiej Krasoń */
     public Vector3 GetPlacementPosition()
     {
         return this.transform.position + this.placementOffset;
     }
 
+    /* Author: Bartłomiej Krasoń */
     private void PlaceTurret()
     {
         if (builder == null)
