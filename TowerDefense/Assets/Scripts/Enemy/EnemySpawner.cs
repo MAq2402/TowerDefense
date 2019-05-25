@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Class responsible for spawning enemies waves*/
+/*Author: Martyna Drabińska*/
 public class EnemySpawner : MonoBehaviour
 {
 
     public float spawnCounter = 2f;
     public float spawnBreak = 15f;
-    public int enemyCounter = 0;
+    public static int enemyCounter;
     public int wavesQuantity = 3;
-    public Dictionary<string, int> waves;
+    public Dictionary<string, int> waves = new Dictionary<string, int>();
 
+    /*Author: Martyna Drabińska*/
     private void Start()
     {
-        waves = new Dictionary<string, int>();
+        enemyCounter = 0;
+        waves.Clear();
         waves.Add("guardian", 3);
         waves.Add("warrior", 3);
         waves.Add("robot", 1);
@@ -21,24 +25,24 @@ public class EnemySpawner : MonoBehaviour
 
         foreach (KeyValuePair<string, int> entry in waves)
         {
-            enemyCounter += entry.Value;        
+            enemyCounter += entry.Value;
         }
-
         enemyCounter *= wavesQuantity;
-      
     }
 
+    /*Author: Martyna Drabińska*/
     void Update()
-    {   
-            if (spawnCounter <= 0 && wavesQuantity > 0)
-            {
-                StartCoroutine(SpanWave());
-                spawnCounter = spawnBreak;
+    {
+        if (spawnCounter <= 0 && wavesQuantity > 0)
+        {
+            StartCoroutine(SpanWave());
+            spawnCounter = spawnBreak;
             wavesQuantity--;
-            }
-            spawnCounter -= Time.deltaTime;
+        }
+        spawnCounter -= Time.deltaTime;
     }
 
+    /*Author: Martyna Drabińska*/
     public IEnumerator SpanWave()
     {
 
@@ -47,12 +51,24 @@ public class EnemySpawner : MonoBehaviour
             for (int i = 0; i < entry.Value; i++)
             {
                 ObjectPooler.Instance.SpawnFromPool(entry.Key, transform.position, Quaternion.identity);
-             //   enemyCounter++;
                 yield return new WaitForSeconds(0.5f);
             }
 
         }
     }
 
+    /*Author: Martyna Drabińska*/
+    public static bool CheckIfGameEnd()
+    {
+        if (enemyCounter <= PlayerStatistics.killedEnemies +
+                (PlayerStatistics.playerLives - PlayerStatistics.currentLives))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 }

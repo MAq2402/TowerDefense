@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Class responsible for creating pools with enemies objects witch are used
+ * during spawning waves. */
+/*Author: Martyna Drabińska*/
 public class ObjectPooler : MonoBehaviour
 {
     public Dictionary<string, Queue<GameObject>> poolDictionary;
     public List<Pool> pools;
 
+    /*Class representing pool with one type of objects */
+    /*Author: Martyna Drabińska*/
     [System.Serializable]
     public class Pool
     {
@@ -26,11 +31,12 @@ public class ObjectPooler : MonoBehaviour
 
     #endregion
 
+    /*Author: Martyna Drabińska*/
     void Start()
     {
         poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
-        foreach(Pool pool in pools)
+        foreach (Pool pool in pools)
         {
             Queue<GameObject> objectPool = new Queue<GameObject>();
             for (int i = 0; i < pool.poolSize; i++)
@@ -44,20 +50,21 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
+    /*Author: Martyna Drabińska*/
     public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation)
     {
-        if(!poolDictionary.ContainsKey(tag))
+        if (!poolDictionary.ContainsKey(tag))
         {
-            Debug.LogWarning("Pool dictionary doesn't contain "+ tag + "tag");
+            Debug.LogWarning("Pool dictionary doesn't contain " + tag + "tag");
             return null;
         }
 
         GameObject objectToSpawn = poolDictionary[tag].Dequeue();
         objectToSpawn.SetActive(true);
-              poolDictionary[tag].Enqueue(objectToSpawn);
+        poolDictionary[tag].Enqueue(objectToSpawn);
 
         return objectToSpawn;
     }
 
-  
+
 }

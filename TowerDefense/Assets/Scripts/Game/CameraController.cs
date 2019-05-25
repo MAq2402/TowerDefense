@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* This class is responsible for camera movement */
+/*Author: Martyna Drabińska*/
 public class CameraController : MonoBehaviour
 {
     public float scrollSpeed = 5f;
@@ -10,13 +12,17 @@ public class CameraController : MonoBehaviour
 
     public float mDelta = 1f;
     public float mSpeed = 20f;
-  
+
+
+    /*Author: Martyna Drabińska*/
     void Update()
     {
         zoom();
-        translate();          
+        translate();
     }
 
+
+    /*Author: Martyna Drabińska*/
     void zoom()
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
@@ -26,6 +32,8 @@ public class CameraController : MonoBehaviour
         transform.position = position;
     }
 
+
+    /*Author: Martyna Drabińska*/
     void translate()
     {
         if (Input.mousePosition.x <= mDelta || Input.GetKey("left"))

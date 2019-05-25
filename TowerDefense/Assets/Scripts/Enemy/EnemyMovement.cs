@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* This class is responsible for managing enemies movement */
+/*Author: Martyna Drabińska*/
 public class EnemyMovement : MonoBehaviour
 {
 
@@ -9,6 +11,8 @@ public class EnemyMovement : MonoBehaviour
     private Transform target;
     private int wayPointIndex = 0;
     private bool fights = false;
+
+    /*Author: Martyna Drabińska*/
     void Start()
     {
         target = Way.wayPoints[0];
@@ -28,12 +32,13 @@ public class EnemyMovement : MonoBehaviour
             GetNextWayPoint();
         }
     }
+
+    /*Authors: Martyna Drabińska, Michał Miciak */
     void Update()
     {
         if (fights)
         {
             FaceTowardsTarget();
-       
         }
         else
         {
@@ -51,22 +56,24 @@ public class EnemyMovement : MonoBehaviour
 
     private void FaceTowardsTarget()
     {
-        if(target !=null)
+        if (target != null)
         {
             var targetRotation = Quaternion.LookRotation(target.transform.position - transform.position);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 1);
         }
-       
+
     }
 
+    /*Author: Martyna Drabińska*/
     private void GetNextWayPoint()
     {
         if (wayPointIndex >= Way.wayPoints.Length - 1)
         {
             Destroy(gameObject);
-            GameObject.Find("GameMaster").GetComponent<PlayerStatitstics>().TakeOneLive();
+            GameObject.Find("GameMaster").GetComponent<PlayerStatistics>().TakeOneLive();
         }
-        else {
+        else
+        {
             wayPointIndex++;
             target = Way.wayPoints[wayPointIndex];
         }
