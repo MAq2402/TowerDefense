@@ -7,6 +7,10 @@ using UnityEngine;
 
 namespace Assets.Scripts.Ally
 {
+    /*
+        * Author: Michał Miciak
+        * AllyFight is responsible for managing ally fights:
+    */
     public class AllyFight : MonoBehaviour
     {
         public int allyHealth;
@@ -17,6 +21,10 @@ namespace Assets.Scripts.Ally
         private EnemyMovement enemyMovement;
         private Collider allyCollider;
         private Animator animator;
+
+        /*
+            * Author: Michał Miciak
+        */
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.collider.gameObject.GetComponents<EnemyMovement>().Any() && enemy == null)
@@ -36,6 +44,9 @@ namespace Assets.Scripts.Ally
 
         }
 
+        /*
+            * Author: Michał Miciak
+         */
         private void StartAnimating()
         {
             animator = gameObject.GetComponent<Animator>();
@@ -44,23 +55,26 @@ namespace Assets.Scripts.Ally
             animator.SetTrigger("Fire");
         }
 
+        /*
+           * Author: Michał Miciak
+        */
         private void Update()
         {
-            if(enemy != null)
+            if (enemy != null)
             {
                 FaceTowardsEnemy();
                 allyHealth -= healthLoss;
                 enemyHealth.DecreaseHealth(attackRatio);
                 allyCollider.enabled = true;
             }
-            else if(animator !=null)
+            else if (animator != null)
             {
-                if(animator.GetCurrentAnimatorStateInfo(0).IsName("Aiming"))
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Aiming"))
                 {
                     animator.ResetTrigger("Aiming");
                 }
 
-                if(animator.GetCurrentAnimatorStateInfo(0).IsName("Fire"))
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("Fire"))
                 {
                     animator.ResetTrigger("Fire");
                 }
@@ -75,6 +89,9 @@ namespace Assets.Scripts.Ally
             }
         }
 
+        /*
+           * Author: Michał Miciak
+        */
         private void FaceTowardsEnemy()
         {
             var targetRotation = Quaternion.LookRotation(enemy.transform.position - transform.position);

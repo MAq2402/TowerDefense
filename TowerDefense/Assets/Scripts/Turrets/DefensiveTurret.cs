@@ -4,6 +4,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+     * Author: Michał Miciak
+     * Resposible for managing defensive turrets, which spawn allies.
+*/
 public class DefensiveTurret : MonoBehaviour
 {
     private const float resurectionCooldownValue = 1;
@@ -16,6 +20,10 @@ public class DefensiveTurret : MonoBehaviour
     private float resurectionCooldown = resurectionCooldownValue;
 
     public virtual int Cost { get; set; } = 100;
+
+    /*
+        * Author: Michał Miciak
+    */
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -28,7 +36,7 @@ public class DefensiveTurret : MonoBehaviour
                 {
                     UseDrawer();
                 }
-                else if(hasBeenAlreadyClicked)
+                else if (hasBeenAlreadyClicked)
                 {
                     SpawnAlly(hit);
                     HideRange();
@@ -47,11 +55,16 @@ public class DefensiveTurret : MonoBehaviour
         //}
     }
 
+    /*
+       * Author: Michał Miciak
+    */
     private void StartCounter()
     {
         resurectionCooldown -= Time.deltaTime;
     }
-
+    /*
+       * Author: Michał Miciak
+     */
     private void UseDrawer()
     {
         if (hasBeenAlreadyClicked)
@@ -65,20 +78,33 @@ public class DefensiveTurret : MonoBehaviour
         hasBeenAlreadyClicked = !hasBeenAlreadyClicked;
     }
 
+    /*
+       * Author: Michał Miciak
+    */
     private void ShowRange()
     {
         Drawer.DrawCircleOnSurface(gameObject.GetComponent<LineRenderer>(), this.range, 0.25f, Color.green);
     }
 
+    /*
+       * Author: Michał Miciak
+    */
     private void HideRange()
     {
         Drawer.DrawEmpty(gameObject.GetComponent<LineRenderer>());
     }
+
+    /*
+       * Author: Michał Miciak
+    */
     private void ResurrectAlly()
     {
         ally.SetActive(true);
     }
 
+    /*
+      * Author: Michał Miciak
+    */
     private void SpawnAlly(RaycastHit hit)
     {
         if (!allyHasBeenSpawned)
@@ -90,9 +116,12 @@ public class DefensiveTurret : MonoBehaviour
                 positionOfAlly = hit;
                 allyHasBeenSpawned = true;
             }
-        } 
+        }
     }
 
+    /*
+      * Author: Michał Miciak
+    */
     void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(1))
@@ -101,11 +130,12 @@ public class DefensiveTurret : MonoBehaviour
         }
     }
 
+    /*
+      * Author: Michał Miciak
+    */
     private void Sell()
     {
         ShopMenu.AddMoney(Cost / 2);
         Destroy(gameObject);
     }
-
-
 }

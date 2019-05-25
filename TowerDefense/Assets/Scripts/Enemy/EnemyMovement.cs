@@ -18,11 +18,16 @@ public class EnemyMovement : MonoBehaviour
         target = Way.wayPoints[0];
     }
 
+
+    /*Author: Michał Miciak*/
+
     public void Fight(Transform target)
     {
         this.target = target;
         fights = true;
     }
+
+    /*Author: Michał Miciak*/
     public void StopFight()
     {
         fights = false;
@@ -54,6 +59,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    /*Author: Michał Miciak*/
     private void FaceTowardsTarget()
     {
         if (target != null)
