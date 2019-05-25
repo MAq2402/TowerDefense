@@ -12459,7 +12459,7 @@ MonoBehaviour:
   superDefensiveTurret:
     turretPrefab: {fileID: 9103630748283042102, guid: 46f069c2fca52c842a7a8d86b537b6b0,
       type: 3}
-    turretPrototypePrefab: {fileID: 2039379833688340889, guid: 41a267fdc44a25e4fa04876a694b4b4a,
+    turretPrototypePrefab: {fileID: 4030794192801578139, guid: 41a267fdc44a25e4fa04876a694b4b4a,
       type: 3}
     cost: 100
   laserTurret:
@@ -19088,7 +19088,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: f81b5bde22c39a24e9be7585815073e7,
+      objectReference: {fileID: 21300000, guid: fc777da21b462c34495e282aff4d4333,
         type: 3}
     - target: {fileID: 5339325256744855817, guid: ee969cb356056f743874ccab1ef04984,
         type: 3}
