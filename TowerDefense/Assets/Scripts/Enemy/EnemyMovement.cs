@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 /* This class is responsible for managing enemies movement */
 /*Author: Martyna Drabińska*/
 public class EnemyMovement : MonoBehaviour
@@ -11,11 +11,13 @@ public class EnemyMovement : MonoBehaviour
     private Transform target;
     private int wayPointIndex = 0;
     private bool fights = false;
+    public Text speedText;
 
     /*Author: Martyna Drabińska*/
     void Start()
     {
         target = Way.wayPoints[0];
+        speedText.text = enemySpeed.ToString();
     }
 
 

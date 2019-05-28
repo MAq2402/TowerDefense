@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4492231, g: 0.4992962, b: 0.57571125, a: 1}
+  m_IndirectSpecularColor: {r: 0.44922286, g: 0.49929595, b: 0.5757104, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11221,7 +11221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pools:
   - tag: guardian
-    prefab: {fileID: 1072164222, guid: ee4a42efafe31e44894bb18610c71611, type: 3}
+    prefab: {fileID: 1188663077, guid: 27ca033dc1478e8428a32ad6a8c64af0, type: 3}
     poolSize: 20
   - tag: warrior
     prefab: {fileID: 880484004244674318, guid: 85fa3c4037335144e8fa8c175f7415bd, type: 3}

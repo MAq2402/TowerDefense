@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Ally
 {
@@ -14,6 +15,8 @@ namespace Assets.Scripts.Ally
     public class AllyFight : MonoBehaviour
     {
         public int allyHealth;
+        private int allyStartHealth;
+        public Image helthBar;
         public float attackRatio;
         private int healthLoss = 10;
         private GameObject enemy;
@@ -22,6 +25,10 @@ namespace Assets.Scripts.Ally
         private Collider allyCollider;
         private Animator animator;
 
+        public void Start()
+        {
+            allyStartHealth = allyHealth;
+        }
         /*
             * Author: Michał Miciak
         */
@@ -64,6 +71,7 @@ namespace Assets.Scripts.Ally
             {
                 FaceTowardsEnemy();
                 allyHealth -= healthLoss;
+                helthBar.fillAmount =(float) allyHealth / allyStartHealth;
                 enemyHealth.DecreaseHealth(attackRatio);
                 allyCollider.enabled = true;
             }
