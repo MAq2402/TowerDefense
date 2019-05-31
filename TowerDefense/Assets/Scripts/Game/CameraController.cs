@@ -13,12 +13,16 @@ public class CameraController : MonoBehaviour
     public float mDelta = 1f;
     public float mSpeed = 20f;
 
+    public static bool movement = true;
 
     /*Author: Martyna Drabińska*/
     void Update()
     {
-        zoom();
-        translate();
+        if (movement)
+        {
+            zoom();
+            translate();
+        }    
     }
 
 
