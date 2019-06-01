@@ -33,6 +33,12 @@ public class LevelManager : MonoBehaviour
     /*Author: Martyna Drabińska*/
     public void MainMenu()
     {
+        if (PauseMenu.paused)
+        {
+            Time.timeScale = 1f;
+            CameraController.movement = true;
+            PauseMenu.paused = false;
+        }
         SceneManager.LoadScene("MainMenu");
     }
 
