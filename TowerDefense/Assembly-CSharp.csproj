@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{17BB7AF0-A1AD-DCE4-09CE-1D3A3635465B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -155,6 +156,7 @@
     <Compile Include="Assets\Imports\Yurowm\Demo\Scripts\CharacterPanel.cs" />
     <Compile Include="Assets\Imports\Yurowm\Demo\Scripts\CharacterViewer.cs" />
     <Compile Include="Assets\Imports\Yurowm\Demo\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Game\LevelMapController.cs" />
     <Compile Include="Assets\Scripts\Ally\AllyFight.cs" />
     <Compile Include="Assets\Scripts\Bullets\Bullet.cs" />
     <Compile Include="Assets\Scripts\Bullets\LaserBeam.cs" />

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 /*Author: Martyna Drabińska*/
 public class LevelManager : MonoBehaviour
 {
-
+    public static int activeLevelsNumber = 1;
     /*Author: Martyna Drabińska*/
     public void GameOver()
     {
@@ -47,4 +47,12 @@ public class LevelManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+
+    /*Author: Martyna Drabińska*/
+    public void ShowLevelMap()
+    {
+        SceneManager.LoadScene("LevelMap");
+    }
+
 }
