@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /* Class responsible for spawning enemies waves*/
 /*Author: Martyna Drabińska*/
@@ -12,6 +13,8 @@ public class EnemySpawner : MonoBehaviour
     public static int enemyCounter;
     public int wavesQuantity = 3;
     public Dictionary<string, int> waves = new Dictionary<string, int>();
+    public bool wavesStarted = false;
+    public Button startButton;
 
     /*Author: Martyna Drabińska*/
     private void Start()
@@ -33,13 +36,17 @@ public class EnemySpawner : MonoBehaviour
     /*Author: Martyna Drabińska*/
     void Update()
     {
-        if (spawnCounter <= 0 && wavesQuantity > 0)
+        if (wavesStarted)
         {
-            StartCoroutine(SpanWave());
-            spawnCounter = spawnBreak;
-            wavesQuantity--;
+            if (spawnCounter <= 0 && wavesQuantity > 0)
+            {
+                StartCoroutine(SpanWave());
+                spawnCounter = spawnBreak;
+                wavesQuantity--;
+            }
+            spawnCounter -= Time.deltaTime;
         }
-        spawnCounter -= Time.deltaTime;
+        
     }
 
     /*Author: Martyna Drabińska*/
@@ -71,4 +78,10 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    /*AuthorL Martyna Drabińska*/
+    public void startWaves()
+    {
+        wavesStarted = true;
+        Destroy(startButton.gameObject);
+    }
 }
