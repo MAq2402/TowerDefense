@@ -1,58 +1,56 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-/* Class responsible for moving between scenes*/
+/*Class responsible for basic level management*/
 /*Author: Martyna Drabińska*/
 public class LevelManager : MonoBehaviour
 {
-    public static int activeLevelsNumber = 1;
+    public static int currentLevelNumber = 1;
+    public Text levelNumberText;
+
+    /*Class representing basic level features*/
     /*Author: Martyna Drabińska*/
-    public void GameOver()
+    public class LevelFeatures
     {
-        SceneManager.LoadScene("GameOver");
+        public int startMoney;
+        public Color sceneColor;
+        public Dictionary<string, int> levelWaves;
     }
 
-    /*Author: Martyna Drabińska*/
-    public void Play()
+    public static Dictionary<int, LevelFeatures> levelFeatures = new Dictionary<int, LevelFeatures>()
     {
-        PlayerStatistics.killedEnemies = 0;
-        SceneManager.LoadScene("MainScene");
-    
-
-    }
-
-    /*Author: Martyna Drabińska*/
-    public void GameEnd()
-    {
-        SceneManager.LoadScene("GameEnd");
-    }
-
-    /*Author: Martyna Drabińska*/
-    public void MainMenu()
-    {
-        if (PauseMenu.paused)
-        {
-            Time.timeScale = 1f;
-            CameraController.movement = true;
-            PauseMenu.paused = false;
+        [1] = new LevelFeatures { startMoney=100, sceneColor= new Color(0f, 0f, 1f),
+            levelWaves = new Dictionary<string, int>()
+            {
+                ["guardian"] = 1, ["warrior"] = 1, ["robot"] = 1, ["scout"] = 1 
+            }
+        },
+        [2] = new LevelFeatures { startMoney = 200, sceneColor = new Color(0.0f, 1f, 0f),
+            levelWaves = new Dictionary<string, int>()
+            {
+                ["guardian"] = 2, ["warrior"] = 2, ["robot"] = 2, ["scout"] = 2
+            }
+        },
+        [3] = new LevelFeatures { startMoney = 250, sceneColor = new Color(1f, 0f, 0f),
+            levelWaves = new Dictionary<string, int>()
+            {
+                ["guardian"] = 1, ["warrior"] = 1, ["robot"] = 1, ["scout"] = 1
+            }
+        },
+        [4] = new LevelFeatures { startMoney = 300, sceneColor = new Color(1f, 1f, 1f),
+            levelWaves = new Dictionary<string, int>()
+            {
+                ["guardian"] = 1, ["warrior"] = 1, ["robot"] = 1, ["scout"] = 1
+            }
         }
-        SceneManager.LoadScene("MainMenu");
-    }
+    };
 
     /*Author: Martyna Drabińska*/
-    public void Exit()
+    void Start()
     {
-        Application.Quit();
+        levelNumberText.text = $"Level: {currentLevelNumber}";
     }
-
-
-    /*Author: Martyna Drabińska*/
-    public void ShowLevelMap()
-    {
-        SceneManager.LoadScene("LevelMap");
-    }
-
+   
 }

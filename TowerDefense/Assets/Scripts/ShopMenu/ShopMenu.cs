@@ -100,7 +100,8 @@ public class ShopMenu : MonoBehaviour
     */
     void Start()
     {
-        Money = 100;
+        //Money = 100;
+        Money = LevelManager.levelFeatures[LevelManager.currentLevelNumber].startMoney;
         builder = Builder.Instance;
     }
 

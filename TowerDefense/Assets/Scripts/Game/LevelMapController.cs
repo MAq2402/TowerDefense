@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 /* Class responsible for managing active levels on level map*/
 /*Author: Martyna Drabińska*/
 public class LevelMapController : MonoBehaviour
@@ -15,10 +13,9 @@ public class LevelMapController : MonoBehaviour
     /*Author: Martyna Drabińska*/
     private void Start()
     {
-        string effectsName = "Effects" + levelNumber.ToString();
-        if (LevelManager.activeLevelsNumber >= this.levelNumber)
+        if (SceneController.activeLevelsNumber >= this.levelNumber)
         {
-            active = true;
+           active = true;
            effects.SetActive(true);
         }
         else
@@ -31,10 +28,9 @@ public class LevelMapController : MonoBehaviour
     /*Author: Martyna Drabińska*/
     private void OnMouseDown()
     {
-        Debug.Log(active);
         if (active)
         {
-            GameObject.Find("GameMaster").GetComponent<LevelManager>().Play();
+            GameObject.Find("GameMaster").GetComponent<SceneController>().Play(levelNumber);
         }
            
     }

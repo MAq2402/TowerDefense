@@ -9,13 +9,14 @@ public class PlayerStatistics : MonoBehaviour
 {
     public static int currentLives;
     public static int playerLives = 10;
-    public static int killedEnemies = 0;
+    public static int killedEnemies;
     public Text livesQuantity;
 
     /*Author: Martyna Drabińska*/
     public void Start()
     {
         currentLives = playerLives;
+        killedEnemies = 0;   
     }
 
     /*Author: Martyna Drabińska*/
@@ -25,15 +26,15 @@ public class PlayerStatistics : MonoBehaviour
         {
             currentLives--;
             livesQuantity.text = currentLives.ToString();
-            if (EnemySpawner.CheckIfGameEnd())
+            
+            if (EnemySpawner.CheckIfLevelEnd())
             {
-                Debug.Log("end");
-                GameObject.Find("GameMaster").GetComponent<LevelManager>().GameEnd();
+                GameObject.Find("GameMaster").GetComponent<SceneController>().LevelEnd();
             }
         }
         else
         {
-            GameObject.Find("GameMaster").GetComponent<LevelManager>().GameOver();
+            GameObject.Find("GameMaster").GetComponent<SceneController>().GameOver();
         }
 
     }
@@ -42,10 +43,9 @@ public class PlayerStatistics : MonoBehaviour
     public static void increaseKilledEnemies()
     {
         killedEnemies++;
-        if (EnemySpawner.CheckIfGameEnd())
+        if (EnemySpawner.CheckIfLevelEnd())
         {
-            Debug.Log("end");
-            GameObject.Find("GameMaster").GetComponent<LevelManager>().GameEnd();
+            GameObject.Find("GameMaster").GetComponent<SceneController>().LevelEnd();
         }
     }
 }
