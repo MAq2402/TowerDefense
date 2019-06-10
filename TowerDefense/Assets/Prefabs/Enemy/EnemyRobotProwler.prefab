@@ -615,7 +615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e5e116b7e72844eaa17c7d2f1132b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 4
+  enemySpeed: 10
   speedText: {fileID: 7651676014212447958}
 --- !u!135 &5650764628586078782
 SphereCollider:
@@ -969,11 +969,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7696533299521353713}
     m_Modifications:
-    - target: {fileID: 5820511980264859126, guid: edc0a138cddb15d42ae40b39f27d86ec,
-        type: 3}
-      propertyPath: m_Name
-      value: Canvas
-      objectReference: {fileID: 0}
     - target: {fileID: 5820511980264859127, guid: edc0a138cddb15d42ae40b39f27d86ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1078,6 +1073,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820511980264859126, guid: edc0a138cddb15d42ae40b39f27d86ec,
+        type: 3}
+      propertyPath: m_Name
+      value: Canvas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edc0a138cddb15d42ae40b39f27d86ec, type: 3}

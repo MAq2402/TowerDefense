@@ -11,8 +11,8 @@ public class EnemySpawner : MonoBehaviour
     public float spawnCounter = 2f;
     public float spawnBreak = 15f;
     public static int enemyCounter;
-    public int wavesQuantity = 3;
-    public Dictionary<string, int> waves = new Dictionary<string, int>();
+    public int wavesQuantity = 1;
+    public Dictionary<string, int> waves;
     public bool wavesStarted = false;
     public Button startButton;
 
@@ -20,11 +20,7 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         enemyCounter = 0;
-        waves.Clear();
-        waves.Add("guardian", 3);
-        waves.Add("warrior", 3);
-        waves.Add("robot", 1);
-        waves.Add("scout", 5);
+        waves = LevelManager.levelFeatures[LevelManager.currentLevelNumber].levelWaves;
 
         foreach (KeyValuePair<string, int> entry in waves)
         {
@@ -65,7 +61,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     /*Author: Martyna Drabińska*/
-    public static bool CheckIfGameEnd()
+    public static bool CheckIfLevelEnd()
     {
         if (enemyCounter <= PlayerStatistics.killedEnemies +
                 (PlayerStatistics.playerLives - PlayerStatistics.currentLives))
