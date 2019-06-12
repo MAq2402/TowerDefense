@@ -12,7 +12,11 @@ public class LauncherProjectile : Projectile
 {
     public float speed = 70f;
     private Vector3 startPosition;
-    private float highRatio = 0.5f;
+    private const float highRatio = 0.21f;
+    private const float constFixedRotation = 0.5f;
+    private const float speedUpRatio = 0.06f;
+
+    private int missileUpDelayCount = 56;
 
     void Start()
     {
@@ -29,26 +33,28 @@ public class LauncherProjectile : Projectile
         }
         var currentPosition = transform.position;
 
-        var distanceFromTarget = Vector3.Distance(targetCenter, currentPosition);
-        var distanceFromStartPosition = Vector3.Distance(currentPosition, startPosition);
-
-        var direction = this.targetCenter - transform.position;
-        if (distanceFromStartPosition < distanceFromTarget)
-        {// before half-a-way
-            direction.y += highRatio;
+        if (missileUpDelayCount >= 0)
+        {//move missile projectile up
+            missileUpDelayCount--;
+            transform.position += Vector3.up * highRatio;
         }
         else
-        {//after half-a-way
-            direction.y -= highRatio;
-        }
-        var distanceThisFrame = speed * Time.deltaTime;
+        {//follow the target
+            base.UpdateTargetCenter();
+            var direction = this.targetCenter - transform.position;
+            var distanceThisFrame = speed * Time.deltaTime;
+            speed += speedUpRatio;
 
-        if(direction.magnitude <= distanceThisFrame)
-        {
-            Hit();
-            return;
-        }
+            if (direction.magnitude <= distanceThisFrame)
+            {
+                Hit();
+                return;
+            }
 
-        transform.Translate(direction.normalized * distanceThisFrame, Space.World);
+            transform.Translate(direction.normalized * distanceThisFrame, Space.World);
+            Quaternion rotationQuaternion = Quaternion.LookRotation(direction);
+            rotationQuaternion.x += constFixedRotation;
+            transform.rotation = rotationQuaternion;
+        }
     }
 }
