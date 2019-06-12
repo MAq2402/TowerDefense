@@ -18,10 +18,16 @@ public class Projectile : MonoBehaviour
     public void SetTarget(Transform target)
     {
         this.target = target;
-        var rend = target.GetComponent<Renderer>();
+        this.UpdateTargetCenter();
+    }
+
+    /* Author: Bartłomiej Krasoń */
+    protected void UpdateTargetCenter()
+    {
+        var rend = this.target.GetComponent<Renderer>();
         if (rend == null)
         {
-            rend = target.GetComponentInChildren<Renderer>();
+            rend = this.target.GetComponentInChildren<Renderer>();
         }
         this.targetCenter = rend.bounds.center;
     }
