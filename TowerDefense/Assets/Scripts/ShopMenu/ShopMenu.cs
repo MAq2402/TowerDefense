@@ -31,6 +31,7 @@ public class ShopMenu : MonoBehaviour
     public Button buySuperDefensiveTurretButton;
     public Text moneyAmountText;
 
+
     /*
           * Author: Michał Miciak
     */
@@ -100,9 +101,16 @@ public class ShopMenu : MonoBehaviour
     */
     void Start()
     {
-        //Money = 100;
+        
         Money = LevelManager.levelFeatures[LevelManager.currentLevelNumber].startMoney;
         builder = Builder.Instance;
+
+        foreach (string turretName in LevelManager.levelFeatures[LevelManager.currentLevelNumber].aditionalTurrets)
+        {
+            string buttonName = $"Canvas/ShopMenu/Buy{turretName}TurretButton";
+            GameObject.Find(buttonName).SetActive(true);
+           
+        }
     }
 
     /*

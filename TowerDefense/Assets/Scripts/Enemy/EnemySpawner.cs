@@ -8,12 +8,13 @@ using UnityEngine.UI;
 public class EnemySpawner : MonoBehaviour
 {
 
-    public float spawnCounter = 2f;
-    public float spawnBreak = 15f;
+    private float spawnCounter = 2f;
+    private float spawnBreak = 15f;
     public static int enemyCounter;
-    public int wavesQuantity = 1;
-    public Dictionary<string, int> waves;
-    public bool wavesStarted = false;
+    int wavesQuantity;
+    private int currentWaveNumber;
+    List<Dictionary<string, int>> waves;
+    private bool wavesStarted = false;
     public Button startButton;
 
     /*Author: Martyna Drabińska*/
@@ -21,12 +22,15 @@ public class EnemySpawner : MonoBehaviour
     {
         enemyCounter = 0;
         waves = LevelManager.levelFeatures[LevelManager.currentLevelNumber].levelWaves;
-
-        foreach (KeyValuePair<string, int> entry in waves)
+        wavesQuantity = waves.Count;
+        currentWaveNumber = 0;
+        foreach (Dictionary<string, int> singleWave in waves)
         {
-            enemyCounter += entry.Value;
+            foreach (KeyValuePair<string, int> entry in singleWave)
+            {
+                enemyCounter += entry.Value;
+            }
         }
-        enemyCounter *= wavesQuantity;
     }
 
     /*Author: Martyna Drabińska*/
@@ -34,11 +38,11 @@ public class EnemySpawner : MonoBehaviour
     {
         if (wavesStarted)
         {
-            if (spawnCounter <= 0 && wavesQuantity > 0)
+            if (spawnCounter <= 0 && currentWaveNumber < wavesQuantity)
             {
                 StartCoroutine(SpanWave());
                 spawnCounter = spawnBreak;
-                wavesQuantity--;
+                currentWaveNumber++;
             }
             spawnCounter -= Time.deltaTime;
         }
@@ -48,13 +52,13 @@ public class EnemySpawner : MonoBehaviour
     /*Author: Martyna Drabińska*/
     public IEnumerator SpanWave()
     {
-
-        foreach (KeyValuePair<string, int> entry in waves)
+        var currentWave = waves[currentWaveNumber];
+        foreach (KeyValuePair<string, int> entry in currentWave)
         {
             for (int i = 0; i < entry.Value; i++)
             {
                 ObjectPooler.Instance.SpawnFromPool(entry.Key, transform.position, Quaternion.identity);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.7f);
             }
 
         }

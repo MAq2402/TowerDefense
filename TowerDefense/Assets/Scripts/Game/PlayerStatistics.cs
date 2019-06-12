@@ -29,7 +29,7 @@ public class PlayerStatistics : MonoBehaviour
             
             if (EnemySpawner.CheckIfLevelEnd())
             {
-                GameObject.Find("GameMaster").GetComponent<SceneController>().LevelEnd();
+                GameObject.Find("GameMaster").GetComponent<LevelEndPanel>().LevelEnd();
             }
         }
         else
@@ -45,7 +45,7 @@ public class PlayerStatistics : MonoBehaviour
         killedEnemies++;
         if (EnemySpawner.CheckIfLevelEnd())
         {
-            GameObject.Find("GameMaster").GetComponent<SceneController>().LevelEnd();
+            GameObject.Find("GameMaster").GetComponent<LevelEndPanel>().LevelEnd();
         }
     }
 }

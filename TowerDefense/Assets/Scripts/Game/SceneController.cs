@@ -8,7 +8,7 @@ using UnityEngine.UI;
 /*Author: Martyna Drabińska*/
 public class SceneController : MonoBehaviour
 {
-    public static int activeLevelsNumber = 4;
+    public static int activeLevelsNumber = 3;
     /*Author: Martyna Drabińska*/
     public void GameOver()
     {
@@ -51,29 +51,13 @@ public class SceneController : MonoBehaviour
     /*Author: Martyna Drabińska*/
     public void ShowLevelMap()
     {
-        SceneManager.LoadScene("LevelMap");
-        
+        CameraController.movement = true;
+        Time.timeScale = 1f;
+        PauseMenu.paused = false;
+        SceneManager.LoadScene("LevelMap");      
     }
 
-    
-    /*Author: Martyna Drabińska*/
-    public void LevelEnd()
-    {
-        if (LevelManager.currentLevelNumber == 4)
-        {
-            GameEnd();
-        }
-        else
-        {
-            if (LevelManager.currentLevelNumber == activeLevelsNumber)
-            {
-                activeLevelsNumber++;
-            }
-
-            ShowLevelMap();
-        }
-    }
-
+   
     /*Author: Martyna Drabińska*/
     public void ReplayAfterGameOver()
     {
@@ -86,5 +70,12 @@ public class SceneController : MonoBehaviour
         LevelManager.currentLevelNumber = 1;
         activeLevelsNumber = 1;
         ShowLevelMap();
+    }
+
+    /*Author: Martyna Drabińska*/
+    public void NextLevel()
+    {
+        CameraController.movement = true;
+        Play(LevelManager.currentLevelNumber+1);
     }
 }
