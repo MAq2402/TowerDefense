@@ -11,17 +11,12 @@ using UnityEngine;
 public class LauncherProjectile : Projectile
 {
     public float speed = 70f;
-    private Vector3 startPosition;
     private const float highRatio = 0.21f;
     private const float constFixedRotation = 0.5f;
     private const float speedUpRatio = 0.06f;
 
     private int missileUpDelayCount = 56;
 
-    void Start()
-    {
-        startPosition = transform.position;
-    }
 
     /* Author: Bartłomiej Krasoń */
     void Update()
