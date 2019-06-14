@@ -21,6 +21,7 @@ public class Bullet : Projectile
             return;
         }
 
+        base.UpdateTargetCenter();
         var direction = this.targetCenter - transform.position;
         var distanceThisFrame = speed * Time.deltaTime;
 

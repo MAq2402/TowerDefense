@@ -30,6 +30,7 @@ public class PrimaryTurret : MonoBehaviour
 
     protected GameObject target;
     protected string targetTag = "enemy";
+    protected Vector3 targetCenter;
     protected float attackCountdown = 0f;
     protected float rotateSpeed = 10f;
 
@@ -94,6 +95,16 @@ public class PrimaryTurret : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void SetTargetCenter()
+    {
+        var rend = this.target.GetComponent<Renderer>();
+        if (rend == null)
+        {
+            rend = this.target.GetComponentInChildren<Renderer>();
+        }
+        this.targetCenter = rend.bounds.center;
+    }
+
     /* Author: Bartłomiej Krasoń */
     protected void UpdateTargets()
     {
@@ -102,6 +113,7 @@ public class PrimaryTurret : MonoBehaviour
         if (enemiesInRange.Any())
         {
             this.target = enemiesInRange.OrderBy(e => Vector3.Distance(towerPosition, e.transform.position)).First();
+            this.SetTargetCenter();
         }
         else
         {
@@ -117,7 +129,7 @@ public class PrimaryTurret : MonoBehaviour
     }
 
     /* Author: Michał Miciak */
-    protected void Shoot()
+    protected virtual void Shoot()
     {
         var projectileGO = Instantiate(projectilePrefab, attackPoint.position, attackPoint.rotation);
         Projectile projectile = projectileGO.GetComponent<Projectile>();
@@ -134,10 +146,11 @@ public class PrimaryTurret : MonoBehaviour
     {
         if (this.target)
         {
-            Vector3 directionVector = this.target.transform.position - this.transform.position;
+            Vector3 directionVector = this.targetCenter - this.transform.position;
             Quaternion fromQuaterion = this.rotatingPart.rotation;
             Quaternion toQuaternion = Quaternion.LookRotation(directionVector);
-            this.rotatingPart.rotation = Quaternion.RotateTowards(fromQuaterion, toQuaternion, this.rotateSpeed);
+            var rotationAnglesHorizontal = Quaternion.RotateTowards(fromQuaterion, toQuaternion, this.rotateSpeed).eulerAngles;
+            this.rotatingPart.rotation = Quaternion.Euler(rotationAnglesHorizontal.x, rotationAnglesHorizontal.y, 0.0f);
         }
     }
 

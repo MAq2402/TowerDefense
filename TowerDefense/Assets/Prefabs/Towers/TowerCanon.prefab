@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   range: 5
-  attackSpeed: 20
+  attackSpeed: 6
   attackStrengthRatio: 0.75
   rotatingPart: {fileID: 9145893509158608194}
   attackPoint: {fileID: 9145893510599837157}
