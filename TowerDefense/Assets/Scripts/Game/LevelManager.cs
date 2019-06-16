@@ -39,7 +39,8 @@ public class LevelManager : MonoBehaviour
                     ["guardian"] = 2, ["warrior"] = 3,  ["fighter"] = 2, ["scout"] = 3
                 }
             },
-            aditionalTurrets = new List<string>() { }
+            // aditionalTurrets = new List<string>() { }
+            aditionalTurrets = new List<string>() { "MissileLauncher", "SuperDefensive" }
         },
         [2] = new LevelFeatures { startMoney = 200, sceneColor = new Color(0.0f, 1f, 0f),
             levelWaves = new List<Dictionary<string, int>>()

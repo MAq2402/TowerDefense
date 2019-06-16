@@ -72,7 +72,7 @@ namespace Assets.Scripts.Ally
                 FaceTowardsEnemy();
                 allyHealth -= healthLoss;
                 helthBar.fillAmount =(float) allyHealth / allyStartHealth;
-                enemyHealth.DecreaseHealth(attackRatio);
+                enemyHealth.DecreaseHealthBySpecificRatio(attackRatio);
                 allyCollider.enabled = true;
             }
             else if (animator != null)

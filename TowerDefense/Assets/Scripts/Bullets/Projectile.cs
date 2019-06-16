@@ -44,7 +44,7 @@ public class Projectile : MonoBehaviour
         var effect = Instantiate(impactEffect, targetCenter, transform.rotation);
         Destroy(effect, 1f);
 
-        target.gameObject.GetComponent<EnemyHealth>().DecreaseHealth(strengthRatio);
+        target.gameObject.GetComponent<EnemyHealth>().DecreaseHealthBySpecificRatio(strengthRatio);
 
         Destroy(gameObject);
     }
