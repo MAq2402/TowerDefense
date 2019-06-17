@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 /* This class is responsible for managing enemies movement */
-/*Author: Martyna Drabińska*/
+/*Author: Martyna Drabińska, Michał Miciak*/
 public class EnemyMovement : MonoBehaviour
 {
     private float baseEnemeySpeed;
@@ -31,6 +31,13 @@ public class EnemyMovement : MonoBehaviour
     {
         this.target = target;
         fights = true;
+    }
+
+    /*Author: Michał Miciak*/
+    public void Stun(int time)
+    {
+        enemySpeed = 0;
+        StartCoroutine(AmounntOfTimeInSlow(time));
     }
 
     /*Author: Michał Miciak*/
@@ -102,14 +109,14 @@ public class EnemyMovement : MonoBehaviour
         IsSlowedDown = true;
         enemySpeed *= 1-slowPower;
 
-        StartCoroutine(AmounntOfTimeInSlow());
+        StartCoroutine(AmounntOfTimeInSlow(3));
     }
     /*Author: Michał Miciak*/
-    private IEnumerator AmounntOfTimeInSlow()
+    private IEnumerator AmounntOfTimeInSlow(int time)
     {
         while (true)
         {
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(time);
             ResetSpeed();
         }
     }

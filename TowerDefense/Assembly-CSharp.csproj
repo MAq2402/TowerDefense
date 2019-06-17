@@ -177,8 +177,8 @@
     <Compile Include="Assets\Scripts\ShopMenu\BottomPanel.cs" />
     <Compile Include="Assets\Scripts\ShopMenu\ShopMenu.cs" />
     <Compile Include="Assets\Scripts\Skill\BombSkill.cs" />
+    <Compile Include="Assets\Scripts\Skill\IceSkill.cs" />
     <Compile Include="Assets\Scripts\Skill\ISkill.cs" />
-    <Compile Include="Assets\Scripts\Skill\Mouse.cs" />
     <Compile Include="Assets\Scripts\Skill\SkillManager.cs" />
     <Compile Include="Assets\Scripts\Turrets\DefensiveTurret.cs" />
     <Compile Include="Assets\Scripts\Turrets\LaserTurret.cs" />

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /* This class is responsilble for managing enemies health */
-/*Author: Martyna Drabińska*/
+/*Author: Martyna Drabińska, Michał Miciak*/
 public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth = 100f;
@@ -43,12 +43,14 @@ public class EnemyHealth : MonoBehaviour
             KillEnemy();
         }
     }
+    /* Author: Michał Miciak */
     private void KillEnemy()
     {
         ShopMenu.AddMoney(moneyForKilling);
         Destroy(gameObject);
         PlayerStatistics.increaseKilledEnemies();
     }
+    /* Author: Michał Miciak */
     private void UpdateHealthBar()
     {
         healthBar.fillAmount = currentHealth / maxHealth;

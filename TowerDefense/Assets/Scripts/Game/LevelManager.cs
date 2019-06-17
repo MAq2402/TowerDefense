@@ -7,7 +7,7 @@ using UnityEngine.UI;
 /*Author: Martyna Drabińska*/
 public class LevelManager : MonoBehaviour
 {
-    public static int currentLevelNumber = 3;
+    public static int currentLevelNumber = 1;
     public Text levelNumberText;
 
     /*Class representing basic level features*/
@@ -39,8 +39,7 @@ public class LevelManager : MonoBehaviour
                     ["guardian"] = 2, ["warrior"] = 3,  ["fighter"] = 2, ["scout"] = 3
                 }
             },
-            // aditionalTurrets = new List<string>() { }
-            aditionalTurrets = new List<string>() { "MissileLauncher", "SuperDefensive" }
+            aditionalTurrets = new List<string>() { }
         },
         [2] = new LevelFeatures { startMoney = 200, sceneColor = new Color(0.0f, 1f, 0f),
             levelWaves = new List<Dictionary<string, int>>()
