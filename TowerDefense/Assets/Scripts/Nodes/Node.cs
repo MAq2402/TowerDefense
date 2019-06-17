@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Skill;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ public class Node : MonoBehaviour
     public GameObject turret;
 
     private Builder builder;
+    private SkillManager skillManager;
 
     /* Author: Bartłomiej Krasoń */
     void Start()

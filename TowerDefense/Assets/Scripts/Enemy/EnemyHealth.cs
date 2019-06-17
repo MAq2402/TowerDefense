@@ -21,16 +21,36 @@ public class EnemyHealth : MonoBehaviour
     }
 
     /* Author: Bartłomiej Krasoń */
-    public void DecreaseHealth(float ratio)
+    public void DecreaseHealthBySpecificRatio(float ratio)
     {
         currentHealth -= healthDecreaseSpeed * ratio;
-        healthBar.fillAmount = currentHealth / maxHealth;
+        UpdateHealthBar();
 
         if (currentHealth <= 0)
         {
-            ShopMenu.AddMoney(moneyForKilling);
-            Destroy(gameObject);
-            PlayerStatistics.increaseKilledEnemies();
+            KillEnemy();
         }
+    }
+
+    /* Author: Michał Miciak */
+    public void DecreaseHealthByAmount(float amount)
+    {
+        currentHealth -= amount;
+        UpdateHealthBar();
+
+        if (currentHealth <= 0)
+        {
+            KillEnemy();
+        }
+    }
+    private void KillEnemy()
+    {
+        ShopMenu.AddMoney(moneyForKilling);
+        Destroy(gameObject);
+        PlayerStatistics.increaseKilledEnemies();
+    }
+    private void UpdateHealthBar()
+    {
+        healthBar.fillAmount = currentHealth / maxHealth;
     }
 }

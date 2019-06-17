@@ -44,15 +44,6 @@ public class DefensiveTurret : MonoBehaviour
                 }
             }
         }
-        //Will work on that
-        //if (!ally.activeInHierarchy && allyHasBeenSpawned){
-        //    StartCounter();
-        //}
-        //if(resurectionCooldown <= 0)
-        //{
-        //    resurectionCooldown = resurectionCooldownValue;
-        //    ResurrectAlly();
-        //}
     }
 
     /*

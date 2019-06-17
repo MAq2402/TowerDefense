@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +7,7 @@ using UnityEngine.UI;
 /*Author: Martyna Drabińska*/
 public class EnemyMovement : MonoBehaviour
 {
+    private float baseEnemeySpeed;
 
     public float enemySpeed = 5f;
     private Transform target;
@@ -13,9 +15,11 @@ public class EnemyMovement : MonoBehaviour
     private bool fights = false;
     public Text speedText;
 
+    public bool IsSlowedDown { get; private set; }
     /*Author: Martyna Drabińska*/
     void Start()
     {
+        baseEnemeySpeed = enemySpeed;
         target = Way.wayPoints[0];
         speedText.text = enemySpeed.ToString();
     }
@@ -85,5 +89,33 @@ public class EnemyMovement : MonoBehaviour
             wayPointIndex++;
             target = Way.wayPoints[wayPointIndex];
         }
+    }
+
+    /*Author: Michał Miciak*/
+
+    public void SlowDown(float slowPower)
+    {
+        if(slowPower > 1 && slowPower < 0)
+        {
+            throw new ArgumentException("Slow power has wrong value");
+        }
+        IsSlowedDown = true;
+        enemySpeed *= 1-slowPower;
+
+        StartCoroutine(AmounntOfTimeInSlow());
+    }
+    /*Author: Michał Miciak*/
+    private IEnumerator AmounntOfTimeInSlow()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(3);
+            ResetSpeed();
+        }
+    }
+    /*Author: Michał Miciak*/
+    private void ResetSpeed()
+    {
+        enemySpeed = baseEnemeySpeed;
     }
 }

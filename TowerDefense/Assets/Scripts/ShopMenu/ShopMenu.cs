@@ -123,7 +123,7 @@ public class ShopMenu : MonoBehaviour
         {
             string buttonName = $"Canvas/ShopMenu/Buy{turretName}TurretButton";
             GameObject.Find(buttonName).SetActive(true);
-           
+
         }
     }
 
