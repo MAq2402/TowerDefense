@@ -7,6 +7,8 @@ using UnityEngine;
 
 namespace Assets.Scripts.Skill
 {
+    /*Author: Michał Miciak*/
+    /*Interface for skills*/
     public interface ISkill
     { 
         int Cost { get; }

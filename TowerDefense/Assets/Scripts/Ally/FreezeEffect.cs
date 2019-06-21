@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 
 /*Author: Michał Miciak*/
+/* FreezeEffect is an example of effect that ally can hold */
 public class FreezeEffect : MonoBehaviour
 {
     private float effectRadius = 5f;

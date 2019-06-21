@@ -48,13 +48,6 @@ public class DefensiveTurret : MonoBehaviour
 
     /*
        * Author: Michał Miciak
-    */
-    private void StartCounter()
-    {
-        resurectionCooldown -= Time.deltaTime;
-    }
-    /*
-       * Author: Michał Miciak
      */
     private void UseDrawer()
     {

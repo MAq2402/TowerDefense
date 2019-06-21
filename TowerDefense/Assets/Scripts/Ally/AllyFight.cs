@@ -67,7 +67,7 @@ namespace Assets.Scripts.Ally
         */
         private void Update()
         {
-            if (enemy != null)
+            if (enemy != null && enemyHealth)
             {
                 FaceTowardsEnemy();
                 allyHealth -= healthLoss;
@@ -90,10 +90,8 @@ namespace Assets.Scripts.Ally
 
             if (allyHealth <= 0)
             {
-                //Will work on that
                 enemyMovement.StopFight();
                 gameObject.SetActive(false);
-                //Destroy(gameObject);
             }
         }
 
