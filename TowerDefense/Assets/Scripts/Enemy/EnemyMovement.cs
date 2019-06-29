@@ -14,6 +14,7 @@ public class EnemyMovement : MonoBehaviour
     private int wayPointIndex = 0;
     private bool fights = false;
     public Text speedText;
+    public Text statusText;
 
     public bool IsSlowedDown { get; private set; }
     /*Author: Martyna Drabińska*/
@@ -37,6 +38,8 @@ public class EnemyMovement : MonoBehaviour
     public void Stun(int time)
     {
         enemySpeed = 0;
+        this.statusText.color = Color.red;
+        this.statusText.text = "STUNNED";
         StartCoroutine(AmounntOfTimeInSlow(time));
     }
 
@@ -108,6 +111,8 @@ public class EnemyMovement : MonoBehaviour
         }
         IsSlowedDown = true;
         enemySpeed *= 1-slowPower;
+        this.statusText.color = Color.magenta;
+        this.statusText.text = "SLOVED";
 
         StartCoroutine(AmounntOfTimeInSlow(3));
     }
@@ -124,5 +129,6 @@ public class EnemyMovement : MonoBehaviour
     private void ResetSpeed()
     {
         enemySpeed = baseEnemeySpeed;
+        this.statusText.text = "";
     }
 }

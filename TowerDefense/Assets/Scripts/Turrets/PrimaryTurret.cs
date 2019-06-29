@@ -20,6 +20,8 @@ public class PrimaryTurret : MonoBehaviour
     public float attackStrengthRatio = 0.1f;
     public float specialEffectProbability = 0.2f;
     public virtual int Cost { get; set; } = 100;
+    public int shootsNumberForNextLevel = 100;
+    protected int shootCounter = 0;
 
     [Header("Transforms")]
     public Transform rotatingPart;
@@ -28,7 +30,7 @@ public class PrimaryTurret : MonoBehaviour
     [Header("Prfabs")]
     public GameObject projectilePrefab;
     public GameObject levelUpPrefab;
-    public GameObject changeColorPart;
+    public GameObject[] changeColorParts;
 
     protected GameObject target;
     protected string targetTag = "enemy";
@@ -55,7 +57,6 @@ public class PrimaryTurret : MonoBehaviour
     void OnMouseEnter()
     {
         this.ShowRange();
-        LevelUp();
     }
 
     /* Author: Bartłomiej Krasoń */
@@ -76,7 +77,10 @@ public class PrimaryTurret : MonoBehaviour
     public void LevelUp()
     {
         this.secondLevel = true;
-        changeColorPart.gameObject.GetComponent<Renderer>().material.color = Color.red;
+        foreach(GameObject part in changeColorParts)
+        {
+            part.gameObject.GetComponent<Renderer>().material.color = Color.red;
+        }
         Vector3 instantinatePosition = transform.position;
         instantinatePosition.z -= 7.2f;
         instantinatePosition.y += gameObject.GetComponent<Collider>().bounds.size.y + 0.7f;
@@ -148,6 +152,18 @@ public class PrimaryTurret : MonoBehaviour
     /* Author: Michał Miciak */
     protected virtual void Shoot()
     {
+        if(shootCounter < shootsNumberForNextLevel)
+        {
+            shootCounter++;
+        }
+        else
+        {
+            if (!secondLevel)
+            {
+                LevelUp();
+            }
+        }
+
         var projectileGO = Instantiate(projectilePrefab, attackPoint.position, attackPoint.rotation);
         Projectile projectile = projectileGO.GetComponent<Projectile>();
         

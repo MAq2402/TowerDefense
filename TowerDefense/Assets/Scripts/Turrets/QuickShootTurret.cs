@@ -29,6 +29,18 @@ public class QuickShootTurret : PrimaryTurret
 
     protected override void Shoot()
     {
+        if (shootCounter < shootsNumberForNextLevel)
+        {
+            shootCounter++;
+        }
+        else
+        {
+            if (!secondLevel)
+            {
+                LevelUp();
+            }
+        }
+
         GameObject projectileGO;
         if (chooseRightCannon)
         {

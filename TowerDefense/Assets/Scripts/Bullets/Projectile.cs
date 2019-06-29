@@ -34,7 +34,7 @@ public class Projectile : MonoBehaviour
     }
 
     /* Author: Bartłomiej Krasoń */
-    protected void ApplySpecialEffect()
+    protected virtual void ApplySpecialEffect()
     {
         // default special effect is slow
         float slowDownRatio = 0.5f;
