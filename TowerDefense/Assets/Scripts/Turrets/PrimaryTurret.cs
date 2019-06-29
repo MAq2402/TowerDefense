@@ -15,10 +15,10 @@ public class PrimaryTurret : MonoBehaviour
 {
 
     [Header("Properties")]
-    public int level = 1;
     public float range = 10f;
     public float attackSpeed = 20f;
     public float attackStrengthRatio = 0.1f;
+    public float specialEffectProbability = 0.2f;
     public virtual int Cost { get; set; } = 100;
 
     [Header("Transforms")]
@@ -27,12 +27,16 @@ public class PrimaryTurret : MonoBehaviour
 
     [Header("Prfabs")]
     public GameObject projectilePrefab;
+    public GameObject levelUpPrefab;
+    public GameObject changeColorPart;
 
     protected GameObject target;
     protected string targetTag = "enemy";
     protected Vector3 targetCenter;
     protected float attackCountdown = 0f;
     protected float rotateSpeed = 10f;
+    protected bool secondLevel = false;
+
 
 
     /* Author: Bartłomiej Krasoń */
@@ -51,6 +55,7 @@ public class PrimaryTurret : MonoBehaviour
     void OnMouseEnter()
     {
         this.ShowRange();
+        LevelUp();
     }
 
     /* Author: Bartłomiej Krasoń */
@@ -68,10 +73,22 @@ public class PrimaryTurret : MonoBehaviour
         }
     }
 
+    public void LevelUp()
+    {
+        this.secondLevel = true;
+        changeColorPart.gameObject.GetComponent<Renderer>().material.color = Color.red;
+        Vector3 instantinatePosition = transform.position;
+        instantinatePosition.z -= 7.2f;
+        instantinatePosition.y += gameObject.GetComponent<Collider>().bounds.size.y + 0.7f;
+        var levelUpEffect = Instantiate(levelUpPrefab, instantinatePosition, Quaternion.identity);
+        Destroy(levelUpEffect, 3.2f);
+    }
+
     /* Author: Bartłomiej Krasoń */
     protected void OnStart()
     {
         InvokeRepeating("UpdateTargets", 0f, 0.5f);
+        this.secondLevel = false;
     }
 
     /* Author: Bartłomiej Krasoń */
@@ -138,6 +155,7 @@ public class PrimaryTurret : MonoBehaviour
         {
             projectile.SetStrengthRatio(attackStrengthRatio);
             projectile.SetTarget(target?.transform);
+            if (secondLevel) projectile.SetSpecialEffectProbability(specialEffectProbability);
         }
     }
 

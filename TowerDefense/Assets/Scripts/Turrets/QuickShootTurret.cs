@@ -46,6 +46,7 @@ public class QuickShootTurret : PrimaryTurret
         {
             projectile.SetStrengthRatio(attackStrengthRatio);
             projectile.SetTarget(target?.transform);
+            if (secondLevel) projectile.SetSpecialEffectProbability(specialEffectProbability);
         }
     }
 }
