@@ -44,4 +44,11 @@ public class LaserBeam : Projectile
             0.2f,
             Color.red);
     }
+
+    /* Author: Bartłomiej Krasoń */
+    protected override void ApplySpecialEffect()
+    {
+        int weakenTime = 3;
+        target.gameObject.GetComponent<EnemyHealth>().Weaken(weakenTime);
+    }
 }

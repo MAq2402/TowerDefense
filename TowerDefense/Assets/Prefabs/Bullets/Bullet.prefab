@@ -92,4 +92,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impactEffect: {fileID: 1920669555170018674, guid: 2562fa9777e5afc40a1bae12464a707e,
     type: 3}
+  specialEffectProbability: 0.1
   speed: 20

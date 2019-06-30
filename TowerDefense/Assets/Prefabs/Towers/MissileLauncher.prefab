@@ -235,14 +235,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad1829cfda60af43904ef116bb49e98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
   range: 9
   attackSpeed: 0.8
   attackStrengthRatio: 2.5
+  specialEffectProbability: 0.325
+  shootsNumberForNextLevel: 20
   rotatingPart: {fileID: 0}
   attackPoint: {fileID: 4595001098621134861}
   projectilePrefab: {fileID: 7254719301701317269, guid: b91520cca2389144387da7f104dbbc8a,
     type: 3}
+  levelUpPrefab: {fileID: 1567621800087803919, guid: 41cab07de63e95745be47e6ae64f5bc8,
+    type: 3}
+  changeColorParts:
+  - {fileID: 5233341762287578931}
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 0

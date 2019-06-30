@@ -52,4 +52,11 @@ public class LauncherProjectile : Projectile
             transform.rotation = rotationQuaternion;
         }
     }
+
+    /* Author: Bartłomiej Krasoń */
+    protected override void ApplySpecialEffect()
+    {
+        int stunDuration = 3;
+        target.gameObject.GetComponent<EnemyMovement>().Stun(stunDuration);
+    }
 }

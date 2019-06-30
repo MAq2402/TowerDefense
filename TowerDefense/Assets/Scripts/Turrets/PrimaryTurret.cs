@@ -15,11 +15,13 @@ public class PrimaryTurret : MonoBehaviour
 {
 
     [Header("Properties")]
-    public int level = 1;
     public float range = 10f;
     public float attackSpeed = 20f;
     public float attackStrengthRatio = 0.1f;
+    public float specialEffectProbability = 0.2f;
     public virtual int Cost { get; set; } = 100;
+    public int shootsNumberForNextLevel = 100;
+    protected int shootCounter = 0;
 
     [Header("Transforms")]
     public Transform rotatingPart;
@@ -27,12 +29,16 @@ public class PrimaryTurret : MonoBehaviour
 
     [Header("Prfabs")]
     public GameObject projectilePrefab;
+    public GameObject levelUpPrefab;
+    public GameObject[] changeColorParts;
 
     protected GameObject target;
     protected string targetTag = "enemy";
     protected Vector3 targetCenter;
     protected float attackCountdown = 0f;
     protected float rotateSpeed = 10f;
+    protected bool secondLevel = false;
+
 
 
     /* Author: Bartłomiej Krasoń */
@@ -68,10 +74,25 @@ public class PrimaryTurret : MonoBehaviour
         }
     }
 
+    public void LevelUp()
+    {
+        this.secondLevel = true;
+        foreach(GameObject part in changeColorParts)
+        {
+            part.gameObject.GetComponent<Renderer>().material.color = Color.red;
+        }
+        Vector3 instantinatePosition = transform.position;
+        instantinatePosition.z -= 7.2f;
+        instantinatePosition.y += gameObject.GetComponent<Collider>().bounds.size.y + 0.7f;
+        var levelUpEffect = Instantiate(levelUpPrefab, instantinatePosition, Quaternion.identity);
+        Destroy(levelUpEffect, 3.2f);
+    }
+
     /* Author: Bartłomiej Krasoń */
     protected void OnStart()
     {
         InvokeRepeating("UpdateTargets", 0f, 0.5f);
+        this.secondLevel = false;
     }
 
     /* Author: Bartłomiej Krasoń */
@@ -131,6 +152,18 @@ public class PrimaryTurret : MonoBehaviour
     /* Author: Michał Miciak */
     protected virtual void Shoot()
     {
+        if(shootCounter < shootsNumberForNextLevel)
+        {
+            shootCounter++;
+        }
+        else
+        {
+            if (!secondLevel)
+            {
+                LevelUp();
+            }
+        }
+
         var projectileGO = Instantiate(projectilePrefab, attackPoint.position, attackPoint.rotation);
         Projectile projectile = projectileGO.GetComponent<Projectile>();
         
@@ -138,6 +171,7 @@ public class PrimaryTurret : MonoBehaviour
         {
             projectile.SetStrengthRatio(attackStrengthRatio);
             projectile.SetTarget(target?.transform);
+            if (secondLevel) projectile.SetSpecialEffectProbability(specialEffectProbability);
         }
     }
 

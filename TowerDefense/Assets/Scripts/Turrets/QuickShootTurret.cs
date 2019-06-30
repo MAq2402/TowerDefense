@@ -29,6 +29,18 @@ public class QuickShootTurret : PrimaryTurret
 
     protected override void Shoot()
     {
+        if (shootCounter < shootsNumberForNextLevel)
+        {
+            shootCounter++;
+        }
+        else
+        {
+            if (!secondLevel)
+            {
+                LevelUp();
+            }
+        }
+
         GameObject projectileGO;
         if (chooseRightCannon)
         {
@@ -46,6 +58,7 @@ public class QuickShootTurret : PrimaryTurret
         {
             projectile.SetStrengthRatio(attackStrengthRatio);
             projectile.SetTarget(target?.transform);
+            if (secondLevel) projectile.SetSpecialEffectProbability(specialEffectProbability);
         }
     }
 }
