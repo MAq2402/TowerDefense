@@ -13,12 +13,13 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class PrimaryTurret : MonoBehaviour
 {
-
     [Header("Properties")]
     public float range = 10f;
     public float attackSpeed = 20f;
     public float attackStrengthRatio = 0.1f;
     public float specialEffectProbability = 0.2f;
+
+    public AudioClip audioClip;
     public virtual int Cost { get; set; } = 100;
     public int shootsNumberForNextLevel = 100;
     protected int shootCounter = 0;
@@ -152,6 +153,7 @@ public class PrimaryTurret : MonoBehaviour
     /* Author: Michał Miciak */
     protected virtual void Shoot()
     {
+        GetComponent<AudioSource>().PlayOneShot(audioClip);
         if(shootCounter < shootsNumberForNextLevel)
         {
             shootCounter++;
