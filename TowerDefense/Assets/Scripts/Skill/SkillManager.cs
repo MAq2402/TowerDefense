@@ -21,6 +21,8 @@ namespace Assets.Scripts.Skill
         private ParticleSystem explosionParticleSystem;
         private ParticleSystem iceParticleSystem;
 
+        public AudioClip bombAudioClop;
+        public AudioClip iceAudioClip;
         public GameObject explosionEffect;
         public Button explosionButton;
         public Button iceButton;
@@ -87,6 +89,7 @@ namespace Assets.Scripts.Skill
                 explosionParticleSystem.Play();
                 StartCoroutine(StopExplosions());
                 ResetButtonsColor(explosionButton);
+                GetComponent<AudioSource>().PlayOneShot(bombAudioClop);
             }
             else if(selectedSkill is IceSkill)
             {
@@ -94,6 +97,7 @@ namespace Assets.Scripts.Skill
                 iceParticleSystem.Play();
                 StartCoroutine(StopIceEffect());
                 ResetButtonsColor(iceButton);
+                GetComponent<AudioSource>().PlayOneShot(iceAudioClip);
             }
         }
         /*Author: Michał Miciak*/
