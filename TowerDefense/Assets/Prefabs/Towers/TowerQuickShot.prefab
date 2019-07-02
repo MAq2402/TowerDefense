@@ -562,9 +562,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 6
   attackSpeed: 10
-  attackStrengthRatio: 0.2
+  attackStrengthRatio: 0.7
   specialEffectProbability: 0.05
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: f9cd2ddcf0f7d3746b4da74687c2cf01, type: 3}
   shootsNumberForNextLevel: 175
   rotatingPart: {fileID: 400018}
   attackPoint: {fileID: 400002}
@@ -707,7 +707,7 @@ AudioSource:
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
-  BypassEffects: 0
+  BypassEffects: 1
   BypassListenerEffects: 0
   BypassReverbZones: 0
   rolloffCustomCurve:

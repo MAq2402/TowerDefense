@@ -190,7 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 8
   attackSpeed: 20
-  attackStrengthRatio: 0.1
+  attackStrengthRatio: 0.9
   specialEffectProbability: 0.035
   audioClip: {fileID: 0}
   shootsNumberForNextLevel: 500
