@@ -159,7 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 5
   attackSpeed: 6
-  attackStrengthRatio: 0.75
+  attackStrengthRatio: 0.5
   specialEffectProbability: 0.08
   audioClip: {fileID: 8300000, guid: f9cd2ddcf0f7d3746b4da74687c2cf01, type: 3}
   shootsNumberForNextLevel: 100

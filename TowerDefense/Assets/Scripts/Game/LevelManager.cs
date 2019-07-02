@@ -20,9 +20,10 @@ public class LevelManager : MonoBehaviour
         public List<string> aditionalTurrets;
     }
 
+    /*Author: Martyna Drabińska*/
     public readonly static Dictionary<int, LevelFeatures> levelFeatures = new Dictionary<int, LevelFeatures>()
     {
-        [1] = new LevelFeatures { startMoney=100, sceneColor= new Color(0f, 0f, 1f),
+        [1] = new LevelFeatures { startMoney=350, sceneColor= new Color(0f, 0f, 1f),
             levelWaves = new List<Dictionary<string, int>>()
             {
                 new Dictionary<string, int>()
@@ -41,7 +42,7 @@ public class LevelManager : MonoBehaviour
             },
             aditionalTurrets = new List<string>() { }
         },
-        [2] = new LevelFeatures { startMoney = 200, sceneColor = new Color(0.0f, 1f, 0f),
+        [2] = new LevelFeatures { startMoney = 450, sceneColor = new Color(0.0f, 1f, 0f),
             levelWaves = new List<Dictionary<string, int>>()
             {
                 new Dictionary<string, int>()
@@ -63,7 +64,7 @@ public class LevelManager : MonoBehaviour
             },
             aditionalTurrets = new List<string>() { "MissileLauncher"}
         },
-        [3] = new LevelFeatures { startMoney = 250, sceneColor = new Color(1f, 0f, 0f),
+        [3] = new LevelFeatures { startMoney = 500, sceneColor = new Color(1f, 0f, 0f),
             levelWaves = new List<Dictionary<string, int>>()
             {
              new Dictionary<string, int>()
@@ -89,7 +90,7 @@ public class LevelManager : MonoBehaviour
             },
             aditionalTurrets = new List<string>() { "MissileLauncher", "SuperDefensive" }
         },
-        [4] = new LevelFeatures { startMoney = 300, sceneColor = new Color(1f, 1f, 1f),
+        [4] = new LevelFeatures { startMoney = 600, sceneColor = new Color(1f, 1f, 1f),
             levelWaves = new List<Dictionary<string, int>>()
             {
                 new Dictionary<string, int>()

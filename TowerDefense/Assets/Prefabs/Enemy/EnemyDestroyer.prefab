@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 150
-  healthDecreaseSpeed: 3
+  healthDecreaseSpeed: 10
   healthBar: {fileID: 5278453323528115590}
   statusText: {fileID: 3313796695689656580}
 --- !u!114 &6179291432848421649
@@ -266,11 +266,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3240658554964407334}
     m_Modifications:
-    - target: {fileID: 5820511980264859126, guid: edc0a138cddb15d42ae40b39f27d86ec,
-        type: 3}
-      propertyPath: m_Name
-      value: Statistics
-      objectReference: {fileID: 0}
     - target: {fileID: 5820511980264859127, guid: edc0a138cddb15d42ae40b39f27d86ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -375,6 +370,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820511980264859126, guid: edc0a138cddb15d42ae40b39f27d86ec,
+        type: 3}
+      propertyPath: m_Name
+      value: Statistics
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edc0a138cddb15d42ae40b39f27d86ec, type: 3}

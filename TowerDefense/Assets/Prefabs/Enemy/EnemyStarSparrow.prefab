@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  healthDecreaseSpeed: 5
+  healthDecreaseSpeed: 12
   healthBar: {fileID: 2382038452466613618}
   statusText: {fileID: 6158812665830744298}
 --- !u!114 &889853114948922703
@@ -277,16 +277,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2125021740753248692}
     m_Modifications:
-    - target: {fileID: 5820511980264859126, guid: edc0a138cddb15d42ae40b39f27d86ec,
-        type: 3}
-      propertyPath: m_Name
-      value: Statistics
-      objectReference: {fileID: 0}
-    - target: {fileID: 5820511980264859126, guid: edc0a138cddb15d42ae40b39f27d86ec,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5820511980264859127, guid: edc0a138cddb15d42ae40b39f27d86ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -407,20 +397,25 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.031657297
       objectReference: {fileID: 0}
+    - target: {fileID: 710087776500698633, guid: edc0a138cddb15d42ae40b39f27d86ec,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -20.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5820511980961774386, guid: edc0a138cddb15d42ae40b39f27d86ec,
         type: 3}
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6109793714221778867, guid: edc0a138cddb15d42ae40b39f27d86ec,
+    - target: {fileID: 5820511980264859126, guid: edc0a138cddb15d42ae40b39f27d86ec,
+        type: 3}
+      propertyPath: m_Name
+      value: Statistics
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820511980264859126, guid: edc0a138cddb15d42ae40b39f27d86ec,
         type: 3}
       propertyPath: m_Layer
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 710087776500698633, guid: edc0a138cddb15d42ae40b39f27d86ec,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -20.1
       objectReference: {fileID: 0}
     - target: {fileID: 5820511980848933897, guid: edc0a138cddb15d42ae40b39f27d86ec,
         type: 3}
@@ -428,6 +423,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9038953043000960892, guid: edc0a138cddb15d42ae40b39f27d86ec,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109793714221778867, guid: edc0a138cddb15d42ae40b39f27d86ec,
         type: 3}
       propertyPath: m_Layer
       value: 0

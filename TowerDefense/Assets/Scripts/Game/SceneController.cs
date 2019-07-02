@@ -8,7 +8,7 @@ using UnityEngine.UI;
 /*Author: Martyna Drabińska*/
 public class SceneController : MonoBehaviour
 {
-    public static int activeLevelsNumber = 3;
+    public static int activeLevelsNumber = 1;
     /*Author: Martyna Drabińska*/
     public void GameOver()
     {

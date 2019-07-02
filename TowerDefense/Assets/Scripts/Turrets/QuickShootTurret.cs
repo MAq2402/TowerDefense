@@ -29,6 +29,7 @@ public class QuickShootTurret : PrimaryTurret
 
     protected override void Shoot()
     {
+        GetComponent<AudioSource>().PlayOneShot(audioClip);
         if (shootCounter < shootsNumberForNextLevel)
         {
             shootCounter++;
